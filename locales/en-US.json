@@ -36,6 +36,7 @@
         "openNgrokInspect": "Open a ngrok web inspection",
         "view": "View",
         "reload": "Reload",
+        "vtgo": "Vtgo app",
         "palette": "Palette",
         "locales": "Locales",
         "resetzoom": "Actual Size",

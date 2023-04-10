@@ -40,7 +40,7 @@ const HELP_NODERED_URL = "https://nodered.org/";
 const HELP_NODERED_DESKTOP_URL = "https://sakazuki.github.io/node-red-desktop/";
 const HELP_AUTHOR_URL = "https://node-red.exhands.org/";
 const NGROK_INSPECT_URL = "http://localhost:4040";
-
+app.name = "PAP"
 export interface AppStatus {
   editorEnabled: boolean;
   ngrokUrl: string;
@@ -60,8 +60,8 @@ export interface AppStatus {
   openLastFile: boolean;
   nodeCommandEnabled: boolean;
   npmCommandEnabled: boolean;
-  httpNodeAuth: {user: string, pass: string};
-  selection: {nodes: any[]};
+  httpNodeAuth: { user: string, pass: string };
+  selection: { nodes: any[] };
   listenPort: string;
   debugOut: boolean;
 }
@@ -76,7 +76,7 @@ type UserSettings = {
   autoDownload: boolean;
   hideOnMinimize: boolean;
   openLastFile: boolean;
-  httpNodeAuth: {user: string, pass: string};
+  httpNodeAuth: { user: string, pass: string };
   listenPort: string;
   debugOut: boolean;
 }
@@ -127,7 +127,7 @@ class BaseApplication {
       nodeCommandEnabled: false,
       npmCommandEnabled: false,
       httpNodeAuth: this.config.data.httpNodeAuth,
-      selection: {nodes: []},
+      selection: { nodes: [] },
       listenPort: this.config.data.listenPort,
       debugOut: this.config.data.debugOut
     };
@@ -139,7 +139,7 @@ class BaseApplication {
     ipcMain.on("browser:minimize", (event: Electron.Event) =>
       this.onMinimize(event)
     );
-    ipcMain.on("browser:before-close", (event: Electron.Event) => 
+    ipcMain.on("browser:before-close", (event: Electron.Event) =>
       this.onBeforeClose(event)
     );
     ipcMain.on("browser:closed", this.onClosed.bind(this));
@@ -166,10 +166,10 @@ class BaseApplication {
     ipcMain.on("editor:started", (event: Electron.Event, args: any) =>
       this.onEditorStarted(event, args)
     );
-    ipcMain.on("nodes:change", (event: Electron.Event, args: {dirty: boolean}) =>
+    ipcMain.on("nodes:change", (event: Electron.Event, args: { dirty: boolean }) =>
       this.onNodesChange(event, args)
     );
-    ipcMain.on("view:selection-changed",(event: Electron.Event, selection: {nodes: any[]}) =>
+    ipcMain.on("view:selection-changed", (event: Electron.Event, selection: { nodes: any[] }) =>
       this.onSelectionChanged(event, selection)
     )
     ipcMain.on("file:new", this.onFileNew.bind(this));
@@ -196,6 +196,10 @@ class BaseApplication {
       // @ts-ignore
       (item: MenuItem, focusedWindow: BrowserWindow) =>
         this.onSetLocale(item, focusedWindow)
+    );
+    // @ts-ignore
+    ipcMain.on("view:vtgo", (item: MenuItem, focusedWindow: BrowserWindow) =>
+      this.onVtgoApp(item, focusedWindow)
     );
     ipcMain.on("help:node-red", () => {
       this.onHelpWeb(HELP_NODERED_URL);
@@ -407,7 +411,7 @@ class BaseApplication {
     this.getBrowserWindow().setTitle(this.red.windowTitle());
   }
 
-  private setProgress(progress: number){
+  private setProgress(progress: number) {
     this.getBrowserWindow().setProgressBar(progress);
   }
 
@@ -432,9 +436,9 @@ class BaseApplication {
     notification.show();
   }
 
-  private onSignIn(event: Electron.Event, args: any) {}
+  private onSignIn(event: Electron.Event, args: any) { }
 
-  private onSignedIn(event: Electron.Event, args: any) {}
+  private onSignedIn(event: Electron.Event, args: any) { }
 
   private async checkNodeVersion() {
     try {
@@ -469,16 +473,16 @@ class BaseApplication {
     ipcMain.emit("menu:update");
   }
 
-  private onNodesChange(event: Electron.Event, args: {dirty: boolean}) {
+  private onNodesChange(event: Electron.Event, args: { dirty: boolean }) {
     this.status.modified = args.dirty;
     if (args.dirty) this.status.newfileChanged = true;
   }
 
-  private onSelectionChanged(event: Electron.Event, selection: {nodes: any[]}){
+  private onSelectionChanged(event: Electron.Event, selection: { nodes: any[] }) {
     this.status.selection = selection;
     this.appMenu!.setMenuItemEnabled("tools.nodegen",
-      selection && 
-      selection.nodes && 
+      selection &&
+      selection.nodes &&
       selection.nodes[0] &&
       selection.nodes[0].type === "function" &&
       !!this.red.getNode(selection.nodes[0].id))
@@ -631,7 +635,14 @@ class BaseApplication {
 
   private async onViewReload(item: MenuItem, focusedWindow: BrowserWindow) {
     if (focusedWindow) {
-      await focusedWindow.loadURL(focusedWindow.webContents.getURL());
+      await focusedWindow.loadURL("http://127.0.0.1:4321/admin");
+      this.setTitle();
+    }
+  }
+
+  private async onVtgoApp(item: MenuItem, focusedWindow: BrowserWindow) {
+    if (focusedWindow) {
+      await focusedWindow.loadURL("http://127.0.0.1:4321/app-desktop"); //QuangNh
       this.setTitle();
     }
   }
@@ -672,7 +683,7 @@ class BaseApplication {
   }
 
   private showRedNotify(type: "success" | "error" | "info", message: string, timeout?: number) {
-    this.getBrowserWindow().webContents.send("red:notify", type, message, timeout);   
+    this.getBrowserWindow().webContents.send("red:notify", type, message, timeout);
   }
 
   private onToggleDevTools(item: MenuItem, focusedWindow: BrowserWindow) {
@@ -775,7 +786,7 @@ class BaseApplication {
 
   private async onNodeGenerator() {
     const node = this.red.getNode(this.status.selection.nodes[0].id);
-    if (!node){
+    if (!node) {
       dialog.showMessageBox(this.getBrowserWindow(), {
         title: i18n.__("dialog.nodegen"),
         type: "info",
@@ -804,7 +815,7 @@ class BaseApplication {
       log.info(">>> nodegen success", result);
       this.openAny(pathToFileURL(result).href);
       // await this.red.execNpmLink(result);
-    } catch(err) {
+    } catch (err) {
       log.error(">>> nodegen failed", err);
       this.showRedNotify("error", JSON.stringify(err));
     }

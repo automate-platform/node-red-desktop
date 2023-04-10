@@ -36,6 +36,7 @@
         "openNgrokInspect": "ブラウザでngrok管理URLを開く",
         "view": "表示",
         "reload": "最新の情報に更新",
+        "vtgo": "最新の情報に更新",
         "palette": "パレット",
         "locales": "言語",
         "resetzoom": "ズームのリセット",

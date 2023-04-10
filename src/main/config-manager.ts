@@ -4,7 +4,7 @@ import { app } from "electron";
 import path from "path";
 import os from "os";
 import { DEFAULT_NODES_EXCLUDES } from "./node-red";
-
+app.name = "PAP"
 interface CONFIG {
   openLastFile: boolean;
   recentFiles: string[];
