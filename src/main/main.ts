@@ -201,6 +201,10 @@ class BaseApplication {
     ipcMain.on("view:vtgo", (item: MenuItem, focusedWindow: BrowserWindow) =>
       this.onVtgoApp(item, focusedWindow)
     );
+    // @ts-ignore
+    ipcMain.on("apps:open", (item: MenuItem, focusedWindow: BrowserWindow, appUrl: string) =>
+       this.openApp(item, focusedWindow, appUrl)
+     );
     ipcMain.on("help:node-red", () => {
       this.onHelpWeb(HELP_NODERED_URL);
     });
@@ -644,6 +648,13 @@ class BaseApplication {
     if (focusedWindow) {
       await focusedWindow.loadURL("http://127.0.0.1:4321/app-desktop"); //QuangNh
       this.setTitle();
+    }
+  }
+
+  private async openApp(item: MenuItem, focusedWindow: BrowserWindow, appUrl: string) {
+    if (focusedWindow) {
+      await focusedWindow.loadURL(appUrl); //QuangNh
+      //this.setTitle();
     }
   }
 

@@ -1,7 +1,9 @@
-import { app, Menu, MenuItemConstructorOptions, ipcMain, MenuItem} from "electron";
+import { app, Menu, MenuItemConstructorOptions, ipcMain, MenuItem } from "electron";
 import i18n from "./i18n";
 import { FileHistory } from "./file-history";
 import { AppStatus } from "./main";
+import path from "path";
+import fs from "fs";
 
 const macOS = process.platform === "darwin";
 
@@ -32,8 +34,36 @@ export class AppMenu {
     return this.enabled && this.status.editorEnabled
   }
 
-  public setup(){
-    const file: MenuItemConstructorOptions ={
+  public setup() {
+
+    const list_app_data = JSON.parse(fs.readFileSync(path.join(this.status.userDir, "menu.json"), 'utf-8').toString());
+    const list_app = []
+    // list_app_data.forEach(function (value: any) {
+    //   console.log(value);
+    //   const item = {
+    //     label: value.app_name,
+    //     enabled: true,
+    //     click(item: any, focusedWindow: any) { ipcMain.emit("apps:open", item, focusedWindow, list_app_data[i].app_url); },
+    //     accelerator : value.app_hotkey
+    //   }
+
+    //   list_app.push(item)
+    // });
+    for (let i = 0; i < list_app_data.length; i++) {
+      list_app.push({
+        label: list_app_data[i].app_name,
+        enabled: this.enabled,
+        click(item: any, focusedWindow: any) { ipcMain.emit("apps:open", item, focusedWindow, list_app_data[i].app_url); },
+        accelerator: list_app_data[i].app_hotkey
+      })
+    };
+
+    const apps: MenuItemConstructorOptions = {
+      label: "Apps",
+      submenu: list_app
+    };
+
+    const file: MenuItemConstructorOptions = {
       label: i18n.__("menu.file"),
       submenu: [
         {
@@ -53,7 +83,7 @@ export class AppMenu {
           enabled: false,
           submenu: [],
         },
-        { type: "separator"},
+        { type: "separator" },
         {
           label: i18n.__("menu.saveDeploy"),
           enabled: this.editorUsable(),
@@ -66,13 +96,13 @@ export class AppMenu {
           accelerator: "Shift+CmdOrCtrl+S",
           click() { ipcMain.emit("file:save-as"); }
         },
-        { type: 'separator'},
+        { type: 'separator' },
         {
           label: i18n.__('menu.settings') + "...",
           enabled: this.enabled,
           click() { ipcMain.emit("settings"); }
         },
-        { type: 'separator'},
+        { type: 'separator' },
         {
           label: i18n.__('menu.openUserDir'),
           enabled: true,
@@ -83,13 +113,13 @@ export class AppMenu {
           enabled: true,
           click() { ipcMain.emit("file:open-logfile"); }
         },
-        { type: "separator"},
+        { type: "separator" },
         {
           label: i18n.__("menu.relaunch"),
           enabled: this.editorUsable(),
           click() { ipcMain.emit("browser:relaunch"); }
         },
-        { type: "separator"},
+        { type: "separator" },
         { label: i18n.__("menu.quit"), role: "quit" }
       ]
     };
@@ -114,7 +144,7 @@ export class AppMenu {
         { label: i18n.__("menu.selectall"), role: "selectall" }
       ] as MenuItemConstructorOptions[]
     };
-  
+
     const endpoint: MenuItemConstructorOptions = {
       label: i18n.__("menu.endpoint"),
       submenu: [
@@ -122,7 +152,7 @@ export class AppMenu {
           label: i18n.__("menu.openLocalURL"),
           enabled: this.editorUsable(),
           click() { ipcMain.emit("endpoint:local"); }
-        }, 
+        },
         {
           label: i18n.__("menu.openLocalAdminURL"),
           enabled: this.editorUsable(),
@@ -138,17 +168,17 @@ export class AppMenu {
           label: i18n.__("menu.ngrokDisconnect"),
           enabled: this.enabled && (this.status.ngrokUrl.length > 0),
           click() { ipcMain.emit("ngrok:disconnect") }
-        }, 
+        },
         {
           label: i18n.__("menu.openPublicURL"),
           enabled: this.enabled && (this.status.ngrokUrl.length > 0),
           click() { ipcMain.emit("endpoint:public"); }
-        }, 
+        },
         {
           label: i18n.__("menu.openNgrokInspect"),
           enabled: this.enabled && this.status.ngrokStarted,
           click() { ipcMain.emit("ngrok:inspect"); }
-        } 
+        }
       ]
     };
 
@@ -165,7 +195,7 @@ export class AppMenu {
           enabled: this.enabled,
           click() { ipcMain.emit("node:addRemote"); }
         },
-        { type: "separator"},
+        { type: "separator" },
         {
           id: "tools.nodegen",
           label: i18n.__("menu.nodegen"),
@@ -174,7 +204,7 @@ export class AppMenu {
         }
       ]
     };
-  
+
     const view: MenuItemConstructorOptions = {
       label: i18n.__("menu.view"),
       submenu: [
@@ -190,6 +220,12 @@ export class AppMenu {
           enabled: this.enabled,
           submenu: [],
         },
+        // {
+        //   label: i18n.__("menu.vtgo"),
+        //   enabled: this.enabled,
+        //   accelerator: "CmdOrCtrl+V",
+        //   click(item, focusedWindow) { ipcMain.emit("view:vtgo", item, focusedWindow); }
+        // },
         { type: "separator" },
         {
           label: i18n.__("menu.togglefullscreen"),
@@ -211,12 +247,12 @@ export class AppMenu {
           enabled: this.enabled,
           role: "resetzoom"
         },
-        { 
+        {
           label: i18n.__("menu.zoomin"),
           enabled: this.enabled,
           role: "zoomin"
         },
-        { 
+        {
           label: i18n.__("menu.zoomout"),
           enabled: this.enabled,
           role: "zoomout"
@@ -264,7 +300,7 @@ export class AppMenu {
     const dev: MenuItemConstructorOptions = {
       label: "Dev",
       submenu: [
-        {   
+        {
           label: "Toggle Developer Tools",
           accelerator: "Ctrl+Shift+I",
           click(item, focusedWindow) { ipcMain.emit("dev:tools", item, focusedWindow); }
@@ -275,7 +311,7 @@ export class AppMenu {
       //@ts-ignore
       dev.submenu[0].accelerator = "Alt+Command+I";
     }
-  
+
     const darwin: MenuItemConstructorOptions = {
       label: app.name,
       submenu: [
@@ -284,7 +320,7 @@ export class AppMenu {
           enabled: this.enabled,
           click() { ipcMain.emit("help:version"); }
         },
-        { type: 'separator'},
+        { type: 'separator' },
         {
           label: i18n.__('menu.settings') + "...",
           enabled: this.enabled,
@@ -292,35 +328,35 @@ export class AppMenu {
           click() { ipcMain.emit("settings"); }
         },
         { type: "separator" },
-        { role: "services", submenu: []},
+        { role: "services", submenu: [] },
         { type: "separator" },
-        { label: i18n.__('menu.hide'), role: 'hide'},
-        { label: i18n.__('menu.hideothers'), role: 'hideothers'},
-        { label: i18n.__('menu.unhide'), role: 'unhide'},
-        { type: 'separator'},
+        { label: i18n.__('menu.hide'), role: 'hide' },
+        { label: i18n.__('menu.hideothers'), role: 'hideothers' },
+        { label: i18n.__('menu.unhide'), role: 'unhide' },
+        { type: 'separator' },
         {
           label: i18n.__("menu.relaunch"),
           click() { ipcMain.emit("browser:relaunch"); }
         },
-        { type: "separator"},
+        { type: "separator" },
         { label: i18n.__('menu.quit'), role: 'quit' }
       ] as MenuItemConstructorOptions[]
     };
-  
+
     let template: MenuItemConstructorOptions[];
     let openRecentMenu: Menu | any;
     let localesMenu: Menu | any;
-  
+
     if (macOS) {
-      template = [darwin, file, edit, endpoint, tools, view, help];
+      template = [darwin, file, edit, endpoint, tools, view, apps, help];
     } else {
-      template = [file, endpoint, tools, view, help];
+      template = [file, endpoint, tools, view, apps, help];
     }
-  
+
     if (new RegExp(`${app.name}-debug`).exec(process.env.NODE_DEBUG!)) {
       template.push(dev);
     };
-  
+
     const menu = Menu.buildFromTemplate(template);
     if (macOS) {
       openRecentMenu = (menu.items[1] as any).submenu.items[2];
@@ -337,14 +373,14 @@ export class AppMenu {
 
   private setOpenRecentMenu(openRecentMenu: Menu): void {
     const files = this.fileHistory.history;
-    if (files.length > 0){
-      for(let i = 0; i < files.length; i++){
+    if (files.length > 0) {
+      for (let i = 0; i < files.length; i++) {
         if (!files[i]) continue;
         openRecentMenu.append(
           new MenuItem({
             label: files[i],
             enabled: this.fileUsable(),
-            click(){ ipcMain.emit("file:open", files[i]); }
+            click() { ipcMain.emit("file:open", files[i]); }
           })
         );
       }
@@ -353,7 +389,7 @@ export class AppMenu {
         new MenuItem({
           label: i18n.__('menu.clearRecent'),
           enabled: this.enabled,
-          click(){ ipcMain.emit("file:clear-recent"); }
+          click() { ipcMain.emit("file:clear-recent"); }
         })
       );
     }
@@ -361,10 +397,10 @@ export class AppMenu {
 
   private setLocalesMenu(localesMenu: Menu): void {
     const locales = i18n.getLocales();
-    for(let i = 0; i < locales.length; i++){
+    for (let i = 0; i < locales.length; i++) {
       localesMenu.append(
         new MenuItem(
-          { 
+          {
             label: locales[i],
             type: "checkbox",
             enabled: this.enabled,
@@ -376,7 +412,7 @@ export class AppMenu {
     }
   }
 
-  public setMenuItemEnabled(id: string, enabled: boolean){
+  public setMenuItemEnabled(id: string, enabled: boolean) {
     const menu = Menu.getApplicationMenu()!.getMenuItemById(id);
     if (menu) menu.enabled = enabled;
   }
