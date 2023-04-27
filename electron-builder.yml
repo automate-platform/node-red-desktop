@@ -1,6 +1,6 @@
 ---
-appId: "Fsoft.Pid.Mgt.OutSysten.EcoApp"
-productName: "Mgt Eco App"
+appId: "PAP.App"
+productName: "PAP App"
 directories:
   app: "dist"
   output: "release"

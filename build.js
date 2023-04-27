@@ -14,7 +14,11 @@ async function copyFiles() {
     "page",
     "images",
     "locales",
-    "src/renderer/desktop.css"
+    "src/renderer/desktop.css",
+    "extension",
+    "config",
+    "data",
+    "node_modules"
   ];
   for (let file of files) {
     await fs.copy(file, path.join(__dirname, config.directories.app, file.replace("src/", "")));

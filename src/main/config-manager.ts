@@ -2,9 +2,9 @@ import storage from "electron-json-storage-sync";
 import log from "./log";
 import { app } from "electron";
 import path from "path";
-import os from "os";
+import fs from "fs";
 import { DEFAULT_NODES_EXCLUDES } from "./node-red";
-app.name = "PAP"
+const userDirPath: string = path.join(__dirname, "..", "data").toString()
 interface CONFIG {
   openLastFile: boolean;
   recentFiles: string[];
@@ -28,7 +28,7 @@ const DEFAULT_CONFIG: CONFIG = {
   recentFiles: [],
   windowBounds: {} as Electron.Rectangle,
   locale: app.getLocale(),
-  userDir: path.join(os.homedir(), "." + app.name),
+  userDir: userDirPath,
   credentialSecret: app.name,
   projectsEnabled: false,
   nodesExcludes: DEFAULT_NODES_EXCLUDES,
@@ -42,6 +42,7 @@ const DEFAULT_CONFIG: CONFIG = {
 };
 
 export class ConfigManager {
+  private configFilePath: string = path.join(__dirname, "..", "config", "config.json").toString()
   private name: string;
   public data: CONFIG;
   constructor(name: string) {
@@ -62,24 +63,19 @@ export class ConfigManager {
   }
 
   public load(): CONFIG {
-    const res = storage.get(this.getName());
-    let config;
-    if (res.status) {
-      config = this.migration(res.data);
-    } else {
-      config = DEFAULT_CONFIG;
-    }
+    let config = JSON.parse(fs.readFileSync(this.configFilePath, 'utf-8').toString());
     return config
   }
 
-  public save(): boolean {
-    const res = storage.set(this.getName(), this.data);
-    log.debug(">>> config saved", res);
-    if (res.status) {
-      return true;
-    } else {
-      log.error(res.error);
-      return false;
-    }
-  }
+  public save()  {
+  //  fs.writeFileSync(this.configFilePath, JSON.stringify(this.data))
+  //   const res = storage.set(this.getName(), this.data);
+  //   log.debug(">>> config saved", res);
+  //   if (res.status) {
+  //     return true;
+  //   } else {
+  //     log.error(res.error);
+  //     return false;
+  //   }
+   }
 }

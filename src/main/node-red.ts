@@ -18,7 +18,6 @@ import _ from "lodash";
 import bcryptjs from "bcryptjs";
 import basicAuth from "basic-auth";
 import merge from "deepmerge";
-app.name = "PAP"
 const IP_ALLOWS = ["127.0.0.1"];
 if (process.env.NRD_IP_ALLOWS) {
   IP_ALLOWS.push(...process.env.NRD_IP_ALLOWS.split(/,/))

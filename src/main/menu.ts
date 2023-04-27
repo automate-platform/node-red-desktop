@@ -34,17 +34,13 @@ export class AppMenu {
     return this.enabled && this.status.editorEnabled
   }
 
+  private menuFilePath: string = path.join(__dirname, "..", "config", "menu.json").toString()
+
   public setup() {
 
-    const list_app_data = JSON.parse(fs.readFileSync(path.join(this.status.userDir, "menu.json"), 'utf-8').toString());
+    const list_app_data = JSON.parse(fs.readFileSync(this.menuFilePath, 'utf-8').toString());
     const list_app = []
     list_app.push(
-      {
-        label: "i18n.__('menu.mgtApp')",
-        enabled: this.enabled,
-        click() { ipcMain.emit("extensions"); },
-        accelerator: "CmdOrCtrl+5"
-      },
       {
         label: "Reload menu",
         enabled: this.enabled,
@@ -62,7 +58,7 @@ export class AppMenu {
     };
 
     const apps: MenuItemConstructorOptions = {
-      label: "Apps",
+      label: i18n.__('menu.app'),
       submenu: list_app
     };
 
@@ -188,6 +184,12 @@ export class AppMenu {
     const tools: MenuItemConstructorOptions = {
       label: i18n.__("menu.tools"),
       submenu: [
+        {
+          label: i18n.__('menu.extension'),
+          enabled: this.enabled,
+          click() { ipcMain.emit("extensions"); },
+          accelerator: "CmdOrCtrl+5"
+        },
         {
           label: i18n.__("menu.addLocalNode") + "...",
           enabled: this.enabled,

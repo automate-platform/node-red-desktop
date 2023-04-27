@@ -40,7 +40,6 @@ const HELP_NODERED_URL = "https://nodered.org/";
 const HELP_NODERED_DESKTOP_URL = "https://sakazuki.github.io/node-red-desktop/";
 const HELP_AUTHOR_URL = "https://node-red.exhands.org/";
 const NGROK_INSPECT_URL = "http://localhost:4040";
-app.name = "PAP"
 export interface AppStatus {
   editorEnabled: boolean;
   ngrokUrl: string;
@@ -88,13 +87,13 @@ class BaseApplication {
   private tray: CustomTray | null = null;
   private app: App;
   private loadingURL: string = pathToFileURL(
-    path.join(__dirname, "..", "loading.html")
+    path.join(__dirname, "..", "extension", "loading", "loading.html")
   ).href;
   private settingsURL: string = pathToFileURL(
     path.join(__dirname, "..", "settings.html")
   ).href;
   private extensionsURL: string = pathToFileURL(
-    path.join(__dirname, "..", "page/extension/index.html")
+    path.join(__dirname, "..", "page", "extension", "index.html")
   ).href;
   private config: ConfigManager;
   private fileManager: FileManager;
@@ -246,7 +245,7 @@ class BaseApplication {
     const options: BrowserWindowConstructorOptions = {
       webPreferences: {
         nodeIntegration: false,
-        nativeWindowOpen: true,
+        //nativeWindowOpen: true,
         contextIsolation: true,
         preload: path.join(__dirname, "preload.js"),
         defaultFontFamily: {
@@ -277,7 +276,7 @@ class BaseApplication {
     const args = process.argv[firstArg];
     if (args && fs.existsSync(args)) return args;
     if (this.config.data.openLastFile) {
-      const lastFile = this.config.data.recentFiles[0];
+      const lastFile = path.join(__dirname, "..", "data", this.config.data.recentFiles[0]);
       if (fs.existsSync(lastFile)) return lastFile;
     }
     return this.fileManager.createTmp();

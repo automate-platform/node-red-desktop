@@ -15,7 +15,9 @@ export class CustomBrowserWindow {
     this.window.on("focus", () => { this.onFocus() })
     this.setupSessionHandler();
     this.window.webContents.on("before-input-event", (event, input) => this.onBeforeInput(event, input));
+        // @ts-ignore
     this.window.webContents.on("new-window", (event, url, frameName, disposition, options) => this.onNewWindow(event, url, frameName, disposition, options));
+       // @ts-ignore
     this.window.webContents.on("dom-ready", event => this.onDomReady(event));
     this.window.webContents.on("will-prevent-unload", event => this.onBeforeUnload(event));
     this.window.loadURL(url);
