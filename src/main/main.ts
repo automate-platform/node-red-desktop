@@ -93,6 +93,9 @@ class BaseApplication {
   private settingsURL: string = pathToFileURL(
     path.join(__dirname, "..", "settings.html")
   ).href;
+  private extensionsURL: string = pathToFileURL(
+    path.join(__dirname, "..", "page/extension/index.html")
+  ).href;
   private config: ConfigManager;
   private fileManager: FileManager;
   private fileHistory: FileHistory;
@@ -181,10 +184,12 @@ class BaseApplication {
     ipcMain.on("file:open-userdir", this.onUserdirOpen.bind(this));
     ipcMain.on("file:open-logfile", this.onLogfileOpen.bind(this));
     ipcMain.on("settings", this.onSettings.bind(this));
+    ipcMain.on("extensions", this.onExtension.bind(this));
     ipcMain.on("endpoint:local", this.onEndpointLocal.bind(this));
     ipcMain.on("endpoint:local-admin", this.onEndpointLocalAdmin.bind(this));
     ipcMain.on("endpoint:public", this.onEndpointPublic.bind(this));
     ipcMain.on("ngrok:connect", this.onNgrokConnect.bind(this));
+    ipcMain.on("ngrok:reload-menu", this.onReloadMenu.bind(this));
     ipcMain.on("ngrok:disconnect", this.onNgrokDisconnect.bind(this));
     ipcMain.on("ngrok:inspect", this.onNgrokInspect.bind(this));
     // @ts-ignore
@@ -203,8 +208,8 @@ class BaseApplication {
     );
     // @ts-ignore
     ipcMain.on("apps:open", (item: MenuItem, focusedWindow: BrowserWindow, appUrl: string) =>
-       this.openApp(item, focusedWindow, appUrl)
-     );
+      this.openApp(item, focusedWindow, appUrl)
+    );
     ipcMain.on("help:node-red", () => {
       this.onHelpWeb(HELP_NODERED_URL);
     });
@@ -221,6 +226,7 @@ class BaseApplication {
       this.onToggleDevTools(item, focusedWindow)
     );
     ipcMain.on("settings:loaded", this.onSettingsLoaded.bind(this));
+    ipcMain.on("extension:loaded", this.onExtensionsLoaded.bind(this));
     ipcMain.on("settings:update", (event: Electron.Event, args: UserSettings) =>
       this.onSettingsSubmit(event, args)
     );
@@ -584,6 +590,9 @@ class BaseApplication {
   private onSettings() {
     return this.getBrowserWindow().loadURL(this.settingsURL);
   }
+  private onExtension() {
+    return this.getBrowserWindow().loadURL(this.extensionsURL);
+  }
 
   private onEndpointLocal() {
     this.openAny(this.red.getHttpUrl());
@@ -614,6 +623,11 @@ class BaseApplication {
       this.showRedNotify("error", JSON.stringify(err));
     }
   }
+
+  private async onReloadMenu() {
+    ipcMain.emit("menu:update");
+  }
+
   private async onNgrokDisconnect() {
     try {
       await ngrok.disconnect(this.status.ngrokUrl);
@@ -703,6 +717,10 @@ class BaseApplication {
 
   private onSettingsLoaded() {
     this.getBrowserWindow().webContents.send("settings:set", this.config.data);
+  }
+
+  private onExtensionsLoaded() {
+    this.getBrowserWindow().webContents.send("extensions:set", null);
   }
 
   private onSettingsSubmit(event: Electron.Event, args: UserSettings) {

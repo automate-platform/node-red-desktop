@@ -11,6 +11,7 @@
         "openSamplesDir": "サンプルディレクトリを開く",
         "openLogFile": "ログファイルを開く",
         "settings": "設定",
+        "extensions": "拡張機能",
         "tools": "ツール",
         "addLocalNode": "ローカルのノードを追加",
         "addRemoteNode": "リモートのノードを追加",

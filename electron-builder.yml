@@ -1,10 +1,10 @@
 ---
-appId: "com.electron.node-red-desktop"
-productName: "Node-RED-Desktop"
+appId: "Fsoft.Pid.Mgt.OutSysten.EcoApp"
+productName: "Mgt Eco App"
 directories:
   app: "dist"
   output: "release"
-asar: true
+asar: false
 files:
 - "**/*"
 - from: "node_modules/@node-red/nodes/examples"
@@ -52,6 +52,6 @@ linux:
     arch:
     - x64
     - armv7l
-  synopsis: "Node-RED Low Code development"
+  synopsis: "MGT Eco App"
   publish:
   - provider: "github"

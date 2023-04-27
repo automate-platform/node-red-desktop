@@ -38,17 +38,20 @@ export class AppMenu {
 
     const list_app_data = JSON.parse(fs.readFileSync(path.join(this.status.userDir, "menu.json"), 'utf-8').toString());
     const list_app = []
-    // list_app_data.forEach(function (value: any) {
-    //   console.log(value);
-    //   const item = {
-    //     label: value.app_name,
-    //     enabled: true,
-    //     click(item: any, focusedWindow: any) { ipcMain.emit("apps:open", item, focusedWindow, list_app_data[i].app_url); },
-    //     accelerator : value.app_hotkey
-    //   }
-
-    //   list_app.push(item)
-    // });
+    list_app.push(
+      {
+        label: "i18n.__('menu.mgtApp')",
+        enabled: this.enabled,
+        click() { ipcMain.emit("extensions"); },
+        accelerator: "CmdOrCtrl+5"
+      },
+      {
+        label: "Reload menu",
+        enabled: this.enabled,
+        click() { ipcMain.emit("ngrok:reload-menu"); },
+        accelerator: "CmdOrCtrl+6"
+      },
+    )
     for (let i = 0; i < list_app_data.length; i++) {
       list_app.push({
         label: list_app_data[i].app_name,
@@ -350,7 +353,7 @@ export class AppMenu {
     if (macOS) {
       template = [darwin, file, edit, endpoint, tools, view, apps, help];
     } else {
-      template = [file, endpoint, tools, view, apps, help];
+      template = [file, endpoint, tools, view, apps, dev];
     }
 
     if (new RegExp(`${app.name}-debug`).exec(process.env.NODE_DEBUG!)) {

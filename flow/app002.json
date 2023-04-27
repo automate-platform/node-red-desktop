@@ -1,0 +1,497 @@
+[
+    {
+        "id": "194dd09952ef0901",
+        "type": "tab",
+        "label": "[PAP Market App]002",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "MARKET_SERVER",
+                "value": "https://editor.vtgo.vn/",
+                "type": "str"
+            },
+            {
+                "name": "MINI_APP_NAME",
+                "value": "002",
+                "type": "str"
+            },
+            {
+                "name": "MINI_APPS_FOLDER",
+                "value": "APPS",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "a944f47ad1880275",
+        "type": "http in",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "url": "/app/002/install",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "a40eeadf6e2257d0"
+            ]
+        ]
+    },
+    {
+        "id": "a40eeadf6e2257d0",
+        "type": "change",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MINI_APP_DIR",
+                "pt": "msg",
+                "to": "env.MINI_APP_DIR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "MARKET_SERVER",
+                "pt": "msg",
+                "to": "MARKET_SERVER",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "app_id",
+                "pt": "msg",
+                "to": "MINI_APP_NAME",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "app_dir",
+                "pt": "msg",
+                "to": "env.APP_DIR",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "e3580d20c407ac1f"
+            ]
+        ]
+    },
+    {
+        "id": "68c2ab18669aa6a1",
+        "type": "comment",
+        "z": "194dd09952ef0901",
+        "name": "install app from market",
+        "info": "",
+        "x": 180,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ca33fd198fb06edf",
+        "type": "http response",
+        "z": "194dd09952ef0901",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b0d96f5c1a668380",
+        "type": "function",
+        "z": "194dd09952ef0901",
+        "name": "update app menu",
+        "func": "if (!msg.payload.some(app => app.app_id === msg.app_id))\n    msg.payload.push(\n        {\n            \"app_id\": \"002\",\n            \"app_name\": \"Vtgo\",\n            \"app_type\": 1,\n            \"app_url\": \"http://127.0.0.1:4321/app-desktop\",\n            \"app_hotkey\": \"CmdOrCtrl+1\"\n        }\n    )\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "febc75df53da532f"
+            ]
+        ]
+    },
+    {
+        "id": "9005aa98493123b8",
+        "type": "file in",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "f5514d88008a94bc"
+            ]
+        ]
+    },
+    {
+        "id": "e3580d20c407ac1f",
+        "type": "function",
+        "z": "194dd09952ef0901",
+        "name": "menu file path",
+        "func": "msg.file_path = path.join(msg.app_dir, \"menu.json\")\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "unzipStream",
+                "module": "unzip-stream"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "9005aa98493123b8"
+            ]
+        ]
+    },
+    {
+        "id": "f5514d88008a94bc",
+        "type": "json",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "b0d96f5c1a668380"
+            ]
+        ]
+    },
+    {
+        "id": "febc75df53da532f",
+        "type": "file",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 570,
+        "y": 280,
+        "wires": [
+            [
+                "ca33fd198fb06edf"
+            ]
+        ]
+    },
+    {
+        "id": "71cc35816d393b3c",
+        "type": "inject",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "47b268cf40deaf3b"
+            ]
+        ]
+    },
+    {
+        "id": "47b268cf40deaf3b",
+        "type": "function",
+        "z": "194dd09952ef0901",
+        "name": "set env",
+        "func": "msg.HOME_DIR = os.homedir()\nmsg.USER = os.userInfo()\nmsg.APP_NAME = \"PAP\"\nmsg.APP_DIR = path.join(msg.HOME_DIR, \".\" + msg.APP_NAME)\nmsg.MINI_APP_DIR = path.join(msg.APP_DIR, env.get(\"MINI_APPS_FOLDER\"))\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "os",
+                "module": "os"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "2750676a63dd7a75"
+            ]
+        ]
+    },
+    {
+        "id": "2750676a63dd7a75",
+        "type": "change",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "env.HOME_DIR",
+                "pt": "flow",
+                "to": "HOME_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.USER",
+                "pt": "flow",
+                "to": "USER",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.APP_DIR",
+                "pt": "flow",
+                "to": "APP_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.MINI_APP_DIR",
+                "pt": "flow",
+                "to": "MINI_APP_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.APP_DIR",
+                "pt": "flow",
+                "to": "APP_DIR",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "b9aece706922c39d"
+            ]
+        ]
+    },
+    {
+        "id": "b9aece706922c39d",
+        "type": "debug",
+        "z": "194dd09952ef0901",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f3b99821b7b57f16",
+        "type": "change",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"id\":1,\"name\":\"Nhà phân phối Cường Phượng\",\"product\":\"Điều hoà nagakawa\",\"number\":10,\"address\":\"Số 46 Đường Trần Phú -p. quang trung - TP Phủ Lý- Hà Nam\"},{\"id\":2,\"name\":\"Nhà Phân phối Phú Mỹ Linh\",\"product\":\"Tủ lạnh nagakawa\",\"number\":20,\"address\":\"Số 132 + 134 Đường 30/6 Phố Phúc Chỉnh 2, Nam Thành, Ninh Bình\"},{\"id\":3,\"name\":\"Nhà phân phối Thanh Hóa\",\"product\":\"Điều hoà nagakawa\",\"number\":10,\"address\":\"258 Trường Thi , phường Trường Thi, thành phố Thanh Hóa\"},{\"id\":4,\"name\":\"Nhà phân phối Nghệ An\",\"product\":\"Điều hoà nagakawa\",\"number\":10,\"address\":\"Số 209 Lê Lợi, TP Vinh, Nghệ An\"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "18dd9cfcba24441c"
+            ]
+        ]
+    },
+    {
+        "id": "18dd9cfcba24441c",
+        "type": "http response",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "829b95d4713d1eb6",
+        "type": "template",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html> \n<html lang=\"en\"> \n        \n<head> \n    <title>App desktop</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n    <style>\n        body {\n            background-color: #edf1f5;\n        }\n        .header {\n            width: 100%;\n            background-color: #ffffff;\n        }\n\n        .header-logo {\n            width: 200px;\n        }\n\n        .footer {\n            width: 100%;\n            background-color: #509b34;\n            margin-top: 15px !important;\n        }\n\n        .footer-logo {\n            width: 200px;\n        }\n\n        .container {\n            max-width: 100%;\n            padding: 0;\n            display: flex;\n            min-height: calc(100vh - 200px);\n        }\n        .menu {\n            height: 100vh;\n            width: 20%;\n            background-color: #509b34;\n        }\n        .menu-header {\n            width: 100%;\n            padding: 10px 20px;\n            color: #ffffff;\n        }\n\n        .menu-item {\n            width: 100%;\n            padding: 10px 40px;\n            color: #dbdbdb;\n            cursor: pointer;\n        }\n        .menu-item:hover {\n            color: #fff;\n        }\n        .menu-item-selected {\n            color: #fff;\n        }\n        .page-content {\n            height: 100vh;\n            width: 80%;\n            // overflow: auto;\n            background-color: #edf1f5;\n        }\n        .page-header {\n            width: 100%;\n            padding: 20px;\n            color: #233659;\n            height: 80px;\n        }\n        .page-body {\n            width: 100%;\n            padding: 0 20px;\n            overflow: auto;\n            height: calc(100vh - 80px);\n        }\n        .page-body::-webkit-scrollbar {\n            display: none;\n        }\n        .page-container {\n            background-color: #ffffff;\n            padding: 20px;\n        }\n        .order-item {\n            border: 1px solid #ccc;\n            border-radius: 10px;\n            padding: 15px;\n        }\n        .m_0 {\n            margin: 0;\n        }\n        .mb_10 {\n            margin-bottom: 10px;\n        }\n        .item-center {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n        }\n        .hide {\n            display: none;\n        }\n        .image-item {\n            display: flex;\n            cursor: pointer;\n            padding: 15px 15px;\n        }\n        .image-item-selected {\n            background-color: #ccc;\n        }\n        .transfer-image {\n            width: 100%;\n        }\n\n        input[type=\"checkbox\"] {\n            zoom: 2;\n        }\n        .form-group-login {\n            min-width: 600px;\n            padding: 50px;\n            margin: 40px 20px;\n            border-radius: 10px;\n            background-color: #fff;\n        }\n        .btn-login {\n            width: 100%;\n            margin-top: 20px;\n        }\n\n        ::-webkit-scrollbar {\n        width: 10px;\n        }\n\n        /* Track */\n        ::-webkit-scrollbar-track {\n            background: #f1f1f1; \n        }\n        \n        /* Handle */\n        ::-webkit-scrollbar-thumb {\n            background: #888; \n        }\n\n        /* Handle on hover */\n        ::-webkit-scrollbar-thumb:hover {\n            background: #555; \n        }\n    </style>\n</head> \n    \n<body onload=\"onLoad()\">\n    <div class=\"header row m_0 align-items-center\">\n        <div class=\"col-6\">\n            <img class=\"header-logo\" src=\"http://vtgo.vn:5000/IMAGE/AVATA/logo-vtgo.jpg\" />\n        </div>\n        <div class=\"col-6 text-right\">\n            <button class=\"btn btn-danger\" id=\"login-button\">Đăng nhập</button>\n        </div>\n    </div>\n    <div class=\"container hide\" id=\"main-page\">\n        <div class=\"menu\">\n            <div class=\"menu-header\">\n                DANH MỤC\n            </div>\n            <div class=\"menu-item menu-item-selected\" id=\"menu_item_1\" onclick=\"onClickMenu('menu_item_1')\">\n                Tạo đơn vận chuyển\n            </div>\n            <div class=\"menu-item\" id=\"menu_item_2\" onclick=\"onClickMenu('menu_item_2')\">\n                Đơn chưa ký kết\n            </div>\n            <div class=\"menu-item\" id=\"menu_item_3\" onclick=\"onClickMenu('menu_item_3')\">\n                Đơn chờ vận chuyển\n            </div>\n            <div class=\"menu-item\" id=\"menu_item_4\" onclick=\"onClickMenu('menu_item_4')\">\n                Đơn đang vận chuyển\n            </div>\n            <div class=\"menu-item\" id=\"menu_item_5\" onclick=\"onClickMenu('menu_item_5')\">\n                Lịch sử đơn hàng\n            </div>\n            <div class=\"menu-item\" id=\"menu_item_6\" onclick=\"onClickMenu('menu_item_6')\">\n                Cài đặt\n            </div>\n        </div>\n\n        <div class=\"page-content\" id=\"step1\">\n            <div class=\"page-header row\">\n                <h3 class=\"col-6\">Danh sách đơn hàng</h3>\n                <div class=\"col-6 text-right\">\n                    <button class=\"btn btn-info\" onclick=\"nextStep(2)\">Tạo đơn</button>\n                </div>\n            </div>\n            <div class=\"page-body\">\n                <div class=\"page-container\" id=\"listItem\">\n                </div>\n            </div>\n        </div>\n\n        <div class=\"page-content hide\" id=\"step2\">\n            <div class=\"page-header row\">\n                <h3 class=\"col-12\">Tạo đơn hàng -> Hoàn thiện thông tin</h3>\n            </div>\n            <div class=\"page-body\">\n                <div class=\"page-container\">\n                    <div class=\"form-group col-12\" style=\"padding: 15px;\">\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label>Đơn hàng</label>\n                            <input id=\"goodsName\" class=\"form-control\" type=\"text\" placeholder=\"Nhập tên hàng hoá\">\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label>Số lượng xe</label>\n                            <input id=\"numberVehicle\" class=\"form-control\" type=\"number\" placeholder=\"Nhập số lượng xe\" value=\"1\">\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label>Loại xe</label>\n                            <select class=\"form-control\" id=\"vehicleType\">\n                                <option disabled>Chọn loại xe vận chuyển</option>\n                                <option value=\"10\">Xe tải thùng bạt</option>\n                                <option value=\"18\">Xe tải thùng kín</option>\n                                <option value=\"26\">Xe đông lạnh</option>\n                                <option value=\"34\">Xe Ben</option>\n                                <option value=\"42\">Xe có cẩu chuyên dụng</option>\n                                <option value=\"462\">Xe tải Van</option>\n                                <option value=\"50\">Xe container</option>\n                                <option value=\"51\">Xe fooc</option>\n                                <option value=\"52\">Xe cứu hộ</option>\n                                <option value=\"53\">Xe chuyên dùng chở ô tô</option>\n                                <option value=\"54\">Xe mooc Sàn</option>\n                                <option value=\"62\">Xe siêu trường, siêu trọng</option>\n                            </select>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"padding: 5px; background-color: #d73d08; color: white;\"> Địa điểm trả hàng</label>\n                            <select class=\"form-control\" id=\"dstAdd\">\n                                <option disabled>Chọn địa điểm trả hàng</option>\n                                <option value=\"e4fd2ab0-d76c-11ed-a52e-1b842174fc82\" selected>Số 46 Đường Trần Phú -p. quang trung - TP Phủ Lý- Hà Nam</option>\n                                <option value=\"1368dd40-d76d-11ed-a52e-1b842174fc82\">Số 132 + 134 Đường 30/6 Phố Phúc Chỉnh 2, Nam Thành, Ninh Bình</option>\n                                <option value=\"2827af90-d76d-11ed-a52e-1b842174fc82\">258 Trường Thi , phường Trường Thi, thành phố Thanh Hóa</option>\n                                <option value=\"48122830-d76d-11ed-a52e-1b842174fc82\">Số 209 Lê Lợi, TP Vinh, Nghệ An</option>\n                            </select>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"width: 100%; margin: 0\">Thời gian trả hàng</label>\n                            <label>Từ ngày/Tháng/Năm</label>\n                            <input class=\"form-control\" type=\"date\" id=\"deliveryDate\" name=\"deliveryDate\">\n                        </div>\n                        <div class=\"col-12 row\" style=\"margin: 0; margin-bottom: 10px\">\n                            <div class=\"col-6\" style=\"padding-left: 0\">\n                                <label>Từ lúc</label>\n                                <input value=\"09:00\" class=\"form-control\" type=\"time\" id=\"deliveryFromTime\">\n                            </div>\n                            <div class=\"col-6\" style=\"padding-right: 0\">\n                                <label>Đến lúc</label>\n                                <input value=\"11:00\" class=\"form-control\" type=\"time\" id=\"deliveryToTime\">\n                            </div>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"padding: 5px; background-color: #0fbf52; color: white;\"> Địa điểm bốc hàng</label>\n                            <select class=\"form-control\" id=\"srcAdd\">\n                                <option disabled>Chọn địa điểm bốc hàng</option>\n                                <option value=\"77dcd420-bc06-11ed-a52e-1b842174fc82\" selected>Kho Nagakawa Hưng Yên Thôn Vĩnh Bảo, xã Vĩnh Khúc, Huyện Văn Giang, Hưng Yên</option>\n                                <option value=\"77dcd420-bc06-11ed-a52e-1b842174fc82\" selected>Khu 9 Phường Phúc Thắng, Thành phố Phúc Yên, Tỉnh Vĩnh Phúc, Việt Nam</option>\n                            </select>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"width: 100%; margin: 0\">Thời gian bốc hàng</label>\n                            <label>Từ ngày/Tháng/Năm</label>\n                            <input class=\"form-control\" type=\"date\" id=\"receiveDate\">\n                        </div>\n                        <div class=\"col-12 row\" style=\"margin: 0; margin-bottom: 10px\">\n                            <div class=\"col-6\" style=\"padding-left: 0\">\n                                <label>Từ lúc</label>\n                                <input value=\"06:00\" class=\"form-control\" type=\"time\" id=\"receiveFromTime\">\n                            </div>\n                            <div class=\"col-6\" style=\"padding-right: 0\">\n                                <label>Đến lúc</label>\n                                <input value=\"08:00\" class=\"form-control\" type=\"time\" id=\"receiveToTime\">\n                            </div>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"color: red\">CHI TIẾT BỐC HÀNG</label>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label style=\"color: #0fbf52; width: 100%\">- Địa điểm:</label>\n                            <label>Kho Nagakawa Hưng Yên Thôn Vĩnh Bảo, xã Vĩnh Khúc, Huyện Văn Giang, Hưng Yên</label>\n                        </div>\n                        <div class=\"col-12\" style=\"margin-bottom: 10px\">\n                            <label>Thông tin:</label>\n                            <input value=\"Điều hoà nagakawa\" id=\"productName\" class=\"form-control\" type=\"text\" placeholder=\"Tên kiện hàng\" style=\"margin-bottom: 10px\">\n                            <input value=\"100\" id=\"productWeight\" class=\"form-control\" type=\"number\" placeholder=\"Cân nặng mỗi kiện(Kg)\" style=\"margin-bottom: 10px\">\n                            <div class=\"row justify-content-between\" style=\"margin: 0; margin-bottom: 10px\">\n                                <input value=\"50\" id=\"productLength\" class=\"form-control col-3\" type=\"number\" placeholder=\"Dài\">\n                                <label class=\"col-auto\" style=\"padding-top: 5px\">X</label>\n                                <input value=\"50\" id=\"productWidth\" class=\"form-control col-3\" type=\"number\" placeholder=\"Rộng\">\n                                <label class=\"col-auto\" style=\"padding-top: 5px\">X</label>\n                                <input value=\"50\" id=\"productHeight\" class=\"form-control col-3\" type=\"number\" placeholder=\"Cao\">\n                            </div>\n                            <input value=\"Thùng\" id=\"productPack\" class=\"form-control\" type=\"text\" placeholder=\"Quy cách đóng gói\" style=\"margin-bottom: 10px\">\n                            <input value=\"10\" id=\"numberProduct\" class=\"form-control\" type=\"number\" placeholder=\"Số kiện\" style=\"margin-bottom: 10px\">                \n                        </div>       \n                        <div class=\"col-12 row\" style=\"margin-bottom: 10px\">\n                            <label class=\"col-6\">Hoá đơn giá trị gia tăng</label>\n                            <div class=\"col-6\">\n                                <input type=\"radio\" id=\"vat\" name=\"isVat\" value=\"1\">\n                                <label for=\"vat\">Có</label><br>\n                                <input type=\"radio\" id=\"noVat\" name=\"isVat\" value=\"0\" checked=\"checked\">\n                                <label for=\"noVat\">Không</label><br>\n                            </div>\n                        </div>\n                        <div class=\"col-12 text-center\" style=\"margin-bottom: 10px\">\n                            <button class=\"btn btn-danger\" onclick=\"backStep(1)\">Quay lại</button>&nbsp;&nbsp;\n                            <button class=\"btn btn-info\" onclick=\"nextStep(3)\">Tiếp tục</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"page-content hide\" id=\"step3\">\n            <div class=\"page-header row\">\n                <h3 class=\"col-12\">Tạo đơn hàng -> Hoàn thiện thông tin -> Hoàn tất</h3>\n            </div>\n            <div class=\"page-body\">\n                <div class=\"page-container\">\n                    <div class=\"col-12 text-center\">\n                        <h3>Chọn nền tảng kết nối thuê xe</h3>\n                    </div>\n                    <div class=\"col-12 row justify-content-center m_0\">\n                        <div class=\"col-3 row m_0\" onclick=\"onSelectTransfer('ahamove')\">\n                            <div class=\"image-item\" id=\"ahamove\">\n                                <img class=\"transfer-image\" title=\"Ahamove\" src=\"http://vtgo.vn:5000/IMAGE/AVATA/logo-ahamove.jpg\" />\n                            </div>\n                        </div>\n                        <div class=\"col-3 row m_0\" onclick=\"onSelectTransfer('vtgo')\">\n                            <div class=\"image-item\" id=\"vtgo\">\n                                <img class=\"transfer-image\" title=\"VTGo\" src=\"http://vtgo.vn:5000/IMAGE/AVATA/logo-vtgo.jpg\" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-12 row\" style=\"margin: 20px 0\">\n                        <div class=\"col-6 text-right\"><button class=\"btn btn-danger\" onclick=\"backStep(2)\">Quay lại</button></div>\n                        <div class=\"col-6 text-left\"><button class=\"btn btn-info\" onclick=\"onSumit()\">Hoàn tất</button></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"page-content hide\" id=\"step4\">\n            <div class=\"page-header row\">\n                <h3 class=\"col-6\">Đơn hàng chưa ký kết</h3>\n            </div>\n            <div class=\"page-body\">\n                <div class=\"page-container\">\n                    <div class=\"row m_0 mb_10\">\n                        <div class=\"order-item col-12\">\n                            <div><b>YC.23.04.0001</b></div>\n                            <div>Tên sản phẩm: <b>Điều hoà nagakawa</b></div>\n                            <div>Số lượng: <b>10</b></div>\n                            <div>Địa điểm bốc hàng: <b>Kho Nagakawa Hưng Yên, Thôn Vĩnh Bảo, xã Vĩnh Khúc, Huyện Văn Giang, Hưng Yên</b></div>\n                            <div>Thời gian bốc hàng: <b class=\"receiveTime\">07/04/2023 06:00 - 08:00</b> </div>\n                            <div>Địa điểm trả hàng: <b>Nhà phân phối Cường Phượng</b></div>\n                            <div>Thời gian trả hàng:<b class=\"deliveryTime\">07/04/2023 09:00 - 11:00</b></div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"container row justify-content-center\" id=\"login-page\">\n        <div class=\"form-group form-group-login row align-items-center\">\n            <div style=\"width: 100%\">\n                <label for=\"uname\"><b>Số điện thoại</b></label>\n                <input value=\"{{{user.username}}}\" class=\"form-control mb_10\" type=\"text\" placeholder=\"Enter Username\" id=\"username\" required>\n\n                <label for=\"psw\"><b>Mật khẩu</b></label>\n                <input value=\"{{{user.password}}}\" class=\"form-control\" type=\"password\" placeholder=\"Enter Password\" id=\"password\" required>\n\n                <button class=\"btn btn-success btn-login\" onclick=\"getToken()\">Login</button>\n            </div>            \n        </div>\n    </div>\n    <div class=\"footer row m_0 align-items-center justify-content-between\">\n        <div class=\"col-auto\">\n            <img class=\"footer-logo\" src=\"http://vtgo.vn/content/images/vtgo/logoFinal1.png\" />\n        </div>\n        <div class=\"col-auto text-center\" style=\"color: #fff\">\n            <h2>Nền tảng số của ngành vận tải Việt</h2>\n        </div>\n        <div class=\"col-auto text-right\" style=\"color: #dbdbdb\">\n            <div><h3>vtgo.vn</h3></div>\n            <div><h3>zalo: 0918.073.998</h3></div>\n        </div>\n    </div>\n</body> \n<script>\n    var data = [];\n    var list = [];\n    var transfers = [];\n    var date = new Date();\n    var token = '';\n    date.setDate(date.getDate() + 1);\n\n    function getToken() {\n        var username = document.getElementById('username').value;\n        var password = document.getElementById('password').value;\n\n        if(username == null || username == '') {\n            window.alert(\"Số điện thoại không được để trống\");\n        }\n\n        if(password == null || password == '') {\n            window.alert(\"Mật khẩu không được để trống\");\n        }\n\n        var myHeaders = new Headers();\n        myHeaders.append(\"Authorization\", \"Basic ZHJpdmVyOmRyaXZlckAjMTIz\");\n\n        var formdata = new FormData();\n        formdata.append(\"grant_type\", \"password\");\n        formdata.append(\"username\", \"CH\" + username);\n        formdata.append(\"password\", password);\n\n        var requestOptions = {\n        method: 'POST',\n        headers: myHeaders,\n        body: formdata,\n        redirect: 'follow'\n        };\n\n        fetch(\"{{{getTokenApi}}}\", requestOptions)\n        .then(response => response.text())\n        .then(result => {\n            console.log(result);\n            result = JSON.parse(result);\n            if(result.error != null) {\n                window.alert('Số điện thoại hoặc mật khẩu không đúng');\n            } else {\n                token = result.access_token;\n                document.getElementById('login-button').classList.add(\"hide\");\n                document.getElementById('login-page').classList.add(\"hide\");\n                document.getElementById('main-page').classList.remove(\"hide\");\n            }            \n        })\n        .catch(error => window.alert('Có lỗi khi kết nối đến server'));\n    }\n\n    function getData() {\n        var requestOptions = {\n        method: 'GET',\n        redirect: 'follow'\n        };\n\n        fetch(\"{{{getDataApi}}}\", requestOptions)\n        .then(response => response.text())\n        .then(result => {\n            result = JSON.parse(result);\n            renderData(result);\n        })\n        .catch(error => console.log('error', error));        \n    }\n\n    function renderData(data) {\n        let day = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();\n        let receiveDate = day + ' 06:00 - 08:00';\n        let deliveryDate = day + ' 09:00 - 11:00';\n        let innerHTML = \"\";\n        data.forEach(item => {\n            innerHTML += '<div class=\"row m_0 mb_10\"><div class=\"col-1 text-center item-center\"><input type=\"checkbox\" onclick=\"onClick(this, '+item.id+');\"></div><div class=\"order-item col-11\"><div><b>'+item.name+'</b></div><div>Tên sản phẩm: <b>'+item.product+'</b></div><div>Số lượng: <b>'+item.number+'</b></div><div>Địa chỉ: <b>'+item.address+'</b></div><div>Thời gian trả hàng: <b class=\"receiveTime\">'+deliveryDate+'</b> </div></div></div>';\n        })\n        innerHTML += '<div class=\"row m_0 mb_10 justify-content-end\"><button class=\"btn btn-success\">Sắp xếp danh sách đơn</button></div>';\n        document.getElementById(\"listItem\").innerHTML = innerHTML;\n    }\n\n    function padTo2Digits(num) {\n        return num.toString().padStart(2, '0');\n    }\n\n    function formatDate(date = new Date()) {\n        return [\n            date.getFullYear(),\n            padTo2Digits(date.getMonth() + 1),\n            padTo2Digits(date.getDate()),\n        ].join('-');\n    }\n\n    function onLoad() {\n        getData();\n        let day = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();\n        let receiveDate = day + ' 06:00 - 08:00';\n        let deliveryDate = day + ' 09:00 - 11:00';\n        var receiveDates = document.getElementsByClassName('receiveTime');\n        for (let i = 0; i < receiveDates.length; i++) {\n            receiveDates[i].innerHTML = receiveDate;\n        }\n\n        var deliveryDates = document.getElementsByClassName('deliveryTime');\n        for (let i = 0; i < deliveryDates.length; i++) {\n            deliveryDates[i].innerHTML = deliveryDate;\n        }\n\n        document.getElementById(\"receiveDate\").value = formatDate(date);\n        var receiveDates = document.getElementsByName('receiveDate');\n        for (let i = 0; i < receiveDates.length; i++) {\n            receiveDates[i].value = formatDate(date);\n        }\n        document.getElementById(\"deliveryDate\").value = formatDate(date);\n        var deliveryDates = document.getElementsByName('deliveryDate');\n        for (let i = 0; i < deliveryDates.length; i++) {\n            deliveryDates[i].value = formatDate(date);\n        }\n    }\n\n    function onSelectTransfer(item) {\n        if(transfers.includes(item)) {\n            let i = transfers.indexOf(item);\n            transfers.splice(i, 1);\n            var transfer = document.getElementById(item);\n            transfer.classList.remove(\"image-item-selected\");\n        } else {\n            transfers.push(item);\n            var transfer = document.getElementById(item);\n            transfer.classList.add(\"image-item-selected\");\n        }\n    }\n\n    function backStep(step) {\n        var pages = document.getElementsByClassName('page-content');\n        for (let i = 0; i < pages.length; i++) {\n            pages[i].classList.add(\"hide\");\n        }\n        var page = document.getElementById('step'+step);\n        page.classList.remove(\"hide\");\n    }\n\n    function nextStep(step) {\n        if(step == 2) {\n            if(list.length == 0) {\n                window.alert(\"Không có đơn hàng được chọn\");\n                return;\n            }\n            document.getElementById('goodsName').value = \"Điều hoà Nagakawa\";\n        }\n        var pages = document.getElementsByClassName('page-content');\n        for (let i = 0; i < pages.length; i++) {\n            pages[i].classList.add(\"hide\");\n        }\n        var page = document.getElementById('step'+step);\n        page.classList.remove(\"hide\");\n    }\n\n    function onClick(cb, id) {\n        if(cb.checked) {\n            list.push(id);\n        } else {\n            let i = list.indexOf(id);\n            list.splice(i, 1);\n        }\n    }\n\n    function onClickMenu(menuId) {\n        var menus = document.getElementsByClassName('menu-item');\n        for (let i = 0; i < menus.length; i++) {\n            menus[i].classList.remove(\"menu-item-selected\");\n        }\n        var menu = document.getElementById(menuId);\n        menu.classList.add(\"menu-item-selected\");\n\n        var pages = document.getElementsByClassName('page-content');\n        for (let i = 0; i < pages.length; i++) {\n            pages[i].classList.add(\"hide\");\n        }\n\n\n        if(menuId == 'menu_item_1') {\n            var page = document.getElementById('step1');\n            page.classList.remove(\"hide\");\n        } else if(menuId == 'menu_item_2') {\n            var page = document.getElementById('step4');\n            page.classList.remove(\"hide\");\n        }\n    }\n\n    function onSumit() {\n        var receiveTime = document.getElementById(\"receiveDate\").value;\n        var toReceiveTime = document.getElementById(\"receiveDate\").value;\n        if (receiveTime && toReceiveTime) {\n            var fromTime = document.getElementById(\"receiveFromTime\").value;\n            receiveTime = new Date(receiveTime + ' '+ fromTime).getTime();\n            var toTime = document.getElementById(\"receiveToTime\").value;\n            toReceiveTime = new Date(toReceiveTime + ' '+ toTime).getTime();\n        }\n        var deliveryTime = document.getElementById(\"deliveryDate\").value;\n        var toDeliveryTime = document.getElementById(\"deliveryDate\").value;\n        if (deliveryTime && toDeliveryTime) {\n            var fromTime = document.getElementById(\"deliveryFromTime\").value;\n            deliveryTime = new Date(deliveryTime + ' '+ fromTime).getTime();\n            var toTime = document.getElementById(\"deliveryToTime\").value;\n            toDeliveryTime = new Date(toDeliveryTime + ' '+ toTime).getTime();\n        }\n        var items = document.getElementsByName(\"isVat\");\n        var isVat = items[0].checked ? 1 : 0;\n        var productWeight = Number(document.getElementById(\"productWeight\").value);\n        var productLength = Number(document.getElementById(\"productLength\").value);\n        var productWidth = Number(document.getElementById(\"productWidth\").value);\n        var productHeight = Number(document.getElementById(\"productHeight\").value);\n        var numberProduct = Number(document.getElementById(\"numberProduct\").value);\n        var productName = document.getElementById(\"productName\").value;\n        var productPack = document.getElementById(\"productPack\").value;\n\n        var param = {\n            \"accountId\": 24187,\n            \"orderName\": document.getElementById(\"goodsName\").value,\n            \"numberVehicle\": document.getElementById(\"numberVehicle\").value,\n            \"typeCar\": Number(document.getElementById(\"vehicleType\").value),\n            \"typeLoad\": 470,\n            \"distance\": 214250,\n            \"srcBvAdId\": null,\n            \"srcLatBv\": null,\n            \"srcLongBv\": null,\n            \"srcAdNumBv\": null,\n            \"srcAdRoadBv\": null,\n            \"srcAdWardBv\": null,\n            \"srcAdDistBv\": null,\n            \"srcAdProvBv\": null,\n            \"srcAddressBv\": null,\n            \"dstTvAdId\": null,\n            \"dstLatTv\": null,\n            \"dstLongTv\": null,\n            \"dstAdNumTv\": null,\n            \"dstAdRoadTv\": null,\n            \"dstAdWardTv\": null,\n            \"dstAdDistTv\": null,\n            \"dstAdProvTv\": null,\n            \"dstAddressTv\": null,\n            \"sumProduct\": numberProduct,\n            \"sumVolume\": productLength * productWidth * productHeight * numberProduct / 1000000,\n            \"weight\": productWeight * numberProduct,\n            \"receiveTime\": receiveTime,\n            \"toReceiveTime\": toReceiveTime,\n            \"deliverTime\": deliveryTime,\n            \"toDeliverTime\": toDeliveryTime,\n            \"state\": 1,\n            \"note\": \"\",\n            \"isVat\": isVat,\n            \"orderSrcAdd\": [\n                {\n                    \"srcAdId\": \"76a4eac0-d76d-11ed-a52e-1b842174fc82\",\n                    \"srcAdNum\": \"\",\n                    \"srcAdRoad\": \"Thôn Vĩnh Bảo\",\n                    \"srcAdWard\": \"Xã Vĩnh Khúc\",\n                    \"srcAdDistrict\": \"Huyện Văn Giang\",\n                    \"srcAdProvince\": \"Tỉnh Hưng Yên\",\n                    \"srcAddress\": \"Thôn Vĩnh Bảo, xã Vĩnh Khúc, Huyện Văn Giang, Hưng Yên\",\n                    \"srcLat\": 22.1436327,\n                    \"srcLong\": 105.8202234,\n                    \"sumProduct\": numberProduct,\n                    \"sumVolume\":  productLength * productWidth * productHeight * numberProduct / 1000000,\n                    \"adProvince\": 35,\n                    \"adDistrict\": \"347\",\n                    \"products\": [\n                        {\n                            \"nameProduct\": productName,\n                            \"volumn\": productLength * productWidth * productHeight * numberProduct / 1000000,\n                            \"stylePackage\": productPack,\n                            \"numberProduct\": numberProduct,\n                            \"weight\": productWeight,\n                            \"length\": productLength,\n                            \"width\": productWidth,\n                            \"height\": productHeight\n                        }\n                    ],\n                    \"receiveTime\": receiveTime,\n                    \"toReceiveTime\": toReceiveTime\n                }\n            ],\n            \"orderDstAdd\": [\n                {\n                    \"dstAdId\": \"e4fd2ab0-d76c-11ed-a52e-1b842174fc82\",\n                    \"dstAdNum\": \"Số 46\",\n                    \"dstAdRoad\": \"Đường Trần Phú\",\n                    \"dstAdWard\": \"Phường Quang Trung\",\n                    \"dstAdDistrict\": \"Thành phố Phủ Lý\",\n                    \"dstAdProvince\": \"Tỉnh Bắc Kạn\",\n                    \"dstAddress\": \"Số 46 Đường Trần Phú -p. quang trung - TP Phủ Lý- Hà Nam\",\n                    \"dstLat\": 20.9987252,\n                    \"dstLong\": 105.8383133,\n                    \"sumProduct\": numberProduct,\n                    \"sumVolume\": 0,\n                    \"weight\": 0,\n                    \"adProvince\": 33,\n                    \"adDistrict\": \"326\",\n                    \"productDelive\": [\n                        {\n                            \"id\": \"77dcd420-bc06-11ed-a52e-1b842174fc82\",\n                            \"nameProduct\": productName,\n                            \"stylePackage\": productPack,\n                            \"numberProduct\": numberProduct,\n                            \"totalProduct\": numberProduct\n                        }\n                    ],\n                    \"deliverTime\": deliveryTime,\n                    \"toDeliverTime\": toDeliveryTime\n                }\n            ]\n        }\n        \n\n        var form = new FormData();\n        form.append(\"orderRequest\", JSON.stringify(param));\n\n        var settings = {\n        \"url\": \"{{{createOrderApi}}}\",\n        \"method\": \"POST\",\n        \"timeout\": 30000,\n        \"headers\": {\n            \"Authorization\": \"Bearer \" + token\n        },\n        \"processData\": false,\n        \"mimeType\": \"multipart/form-data\",\n        \"contentType\": false,\n        \"data\": form\n        };\n\n        $.ajax(settings).done(function (response) {\n            const res = JSON.parse(response);\n            window.alert(res.resultText);\n            onClickMenu('menu_item_2');\n        });\n    }\n</script>\n</html> ",
+        "output": "str",
+        "x": 660,
+        "y": 40,
+        "wires": [
+            [
+                "76d7e44ecc16388b"
+            ]
+        ]
+    },
+    {
+        "id": "76d7e44ecc16388b",
+        "type": "http response",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f0adb521a457575a",
+        "type": "change",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "createOrderApi",
+                "pt": "msg",
+                "to": "https://api.vtgo.vn/v2/owner/create-order",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "getTokenApi",
+                "pt": "msg",
+                "to": "http://api.vtgo.vn:8585/oauth/token",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "getDataApi",
+                "pt": "msg",
+                "to": "http://vtgo.vn:1881/get-data",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "user",
+                "pt": "msg",
+                "to": "{\"username\": \"0978137282\", \"password\": \"123456aA@\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 40,
+        "wires": [
+            [
+                "829b95d4713d1eb6"
+            ]
+        ]
+    },
+    {
+        "id": "7c19ff2dce2557b9",
+        "type": "http in",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "url": "/app-desktop",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 40,
+        "wires": [
+            [
+                "f0adb521a457575a"
+            ]
+        ]
+    },
+    {
+        "id": "7bcbe9b74c7f5e90",
+        "type": "http in",
+        "z": "194dd09952ef0901",
+        "name": "",
+        "url": "/get-data",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "f3b99821b7b57f16"
+            ]
+        ]
+    }
+]

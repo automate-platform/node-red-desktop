@@ -1,0 +1,295 @@
+[
+    {
+        "id": "065bcf44b60dd6fb",
+        "type": "tab",
+        "label": "[PAP Market server]App install/uninstall  ",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "ROOT_DIR",
+                "value": "/data",
+                "type": "str"
+            },
+            {
+                "name": "SERVER_PATH",
+                "value": "http://10.17.69.44:8011",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "d6e6634639f5938a",
+        "type": "http in",
+        "z": "065bcf44b60dd6fb",
+        "name": "",
+        "url": "server/app/install/:app_id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "ce7d79d359b9ac30",
+                "76139bb2ba1d80b0"
+            ]
+        ]
+    },
+    {
+        "id": "cc065c994463c82e",
+        "type": "http response",
+        "z": "065bcf44b60dd6fb",
+        "name": "response stream",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/zip"
+        },
+        "x": 750,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ce7d79d359b9ac30",
+        "type": "function",
+        "z": "065bcf44b60dd6fb",
+        "name": "set file path",
+        "func": "msg.file_path = path.join('.', 'zip', msg.req.params.app_id + '.zip');\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "zipAFolder",
+                "module": "zip-a-folder"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "f8b3498be1748913"
+            ]
+        ]
+    },
+    {
+        "id": "f8b3498be1748913",
+        "type": "file in",
+        "z": "065bcf44b60dd6fb",
+        "name": "read file",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "cc065c994463c82e"
+            ]
+        ]
+    },
+    {
+        "id": "4aefbf964d3c14d3",
+        "type": "comment",
+        "z": "065bcf44b60dd6fb",
+        "name": "server download resource",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e962a7395776f68a",
+        "type": "http in",
+        "z": "065bcf44b60dd6fb",
+        "name": "",
+        "url": "/app/upload",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "f5b29913f061e1bf"
+            ]
+        ]
+    },
+    {
+        "id": "148b0a70fd7b5ffa",
+        "type": "http response",
+        "z": "065bcf44b60dd6fb",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 780,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "69cd43397a6f782d",
+        "type": "file",
+        "z": "065bcf44b60dd6fb",
+        "name": "write file zip",
+        "filename": "filePath",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "6aabef0be31b7e4c"
+            ]
+        ]
+    },
+    {
+        "id": "f5b29913f061e1bf",
+        "type": "function",
+        "z": "065bcf44b60dd6fb",
+        "name": "set file path",
+        "func": "msg.filePath = path.join('.', 'zip', msg.req.files[0].originalname)\nmsg.payload = msg.req.files[0].buffer\nmsg.encoding = msg.req.files[0].encoding\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "69cd43397a6f782d"
+            ]
+        ]
+    },
+    {
+        "id": "d9ba38586a7e145c",
+        "type": "comment",
+        "z": "065bcf44b60dd6fb",
+        "name": "upload app",
+        "info": "",
+        "x": 80,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "23d185c25b69bd64",
+        "type": "catch",
+        "z": "065bcf44b60dd6fb",
+        "name": "upload template",
+        "scope": [
+            "e962a7395776f68a",
+            "6aabef0be31b7e4c",
+            "69cd43397a6f782d",
+            "f5b29913f061e1bf"
+        ],
+        "uncaught": false,
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "083ee61c36098514"
+            ]
+        ]
+    },
+    {
+        "id": "083ee61c36098514",
+        "type": "function",
+        "z": "065bcf44b60dd6fb",
+        "name": "error message",
+        "func": "// return message\nmsg.payload = { code: 400, error: \"upload template failure.\", data: msg.error.message }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "148b0a70fd7b5ffa"
+            ]
+        ]
+    },
+    {
+        "id": "6aabef0be31b7e4c",
+        "type": "function",
+        "z": "065bcf44b60dd6fb",
+        "name": "response",
+        "func": "//var unzipDir = env.get('ROOT_DIR') + '/upload-module/' + msg.req.params.dirName;\n//fs.createReadStream(msg.filePath).pipe(unzipStream.Extract({ path: unzipDir }));\n// return message\nmsg.payload = {\n    code: 200,\n    message: \"upload module successful.\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "unzipStream",
+                "module": "unzip-stream"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "148b0a70fd7b5ffa",
+                "fdb8142ec2c81dc9"
+            ]
+        ]
+    },
+    {
+        "id": "fdb8142ec2c81dc9",
+        "type": "debug",
+        "z": "065bcf44b60dd6fb",
+        "name": "debug 74",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "76139bb2ba1d80b0",
+        "type": "debug",
+        "z": "065bcf44b60dd6fb",
+        "name": "debug 75",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 60,
+        "wires": []
+    }
+]
