@@ -1,0 +1,32 @@
+{
+    "openLastFile": true,
+    "recentFiles": [
+        "flows.json"
+    ],
+    "windowBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1364,
+        "height": 726
+    },
+    "locale": "en-US",
+    "userDir": "data",
+    "credentialSecret": "Electron",
+    "projectsEnabled": false,
+    "nodesExcludes": [
+        "10-mqtt.js",
+        "16-range.js",
+        "31-tcpin.js",
+        "32-udp.js",
+        "89-trigger.js"
+    ],
+    "autoCheckUpdate": false,
+    "allowPrerelease": false,
+    "hideOnMinimize": false,
+    "httpNodeAuth": {
+        "user": "",
+        "pass": ""
+    },
+    "listenPort": "1234",
+    "debugOut": false
+}

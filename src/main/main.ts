@@ -107,6 +107,7 @@ class BaseApplication {
     this.app.on("activate", this.onActivated.bind(this));
     this.app.on("window-all-closed", this.onWindowAllClosed.bind(this));
     this.config = new ConfigManager(app.name);
+    var userDir: string = path.join(__dirname, "..", this.config.data.userDir);
     this.fileManager = new FileManager(this.config);
     this.fileHistory = new FileHistory(FILE_HISTORY_SIZE, ipcMain);
     this.status = {
@@ -116,7 +117,7 @@ class BaseApplication {
       modified: false,
       newfileChanged: false,
       locale: this.config.data.locale,
-      userDir: this.config.data.userDir,
+      userDir: userDir,
       credentialSecret: this.config.data.credentialSecret,
       currentFile: this.getStartFlow(),
       projectsEnabled: this.config.data.projectsEnabled,

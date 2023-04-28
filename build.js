@@ -9,7 +9,6 @@ const program = require("commander");
 async function copyFiles() {
   const files = [
     "package.json",
-    "loading.html",
     "settings.html",
     "page",
     "images",
@@ -17,8 +16,7 @@ async function copyFiles() {
     "src/renderer/desktop.css",
     "extension",
     "config",
-    "data",
-    "node_modules"
+    "data"
   ];
   for (let file of files) {
     await fs.copy(file, path.join(__dirname, config.directories.app, file.replace("src/", "")));

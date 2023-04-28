@@ -1,0 +1,2150 @@
+[
+    {
+        "id": "2ba203899c4815fd",
+        "type": "tab",
+        "label": "[PAP]Ext_Sys_Flows",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9dd8a43b51fdf2fc",
+        "type": "tab",
+        "label": "[PAP Market App]001",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "MARKET_SERVER",
+                "value": "https://editor.vtgo.vn/",
+                "type": "str"
+            },
+            {
+                "name": "MINI_APP_NAME",
+                "value": "001",
+                "type": "str"
+            },
+            {
+                "name": "MINI_APPS_FOLDER",
+                "value": "APPS",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "d712794350a849f0",
+        "type": "tab",
+        "label": "Get Import template",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "root_path",
+                "value": ".\\resources\\app\\OutSystemGeneration\\Fsoft.Pid.Mgt.OutSysten.Gen\\App002\\Data",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "59397896259fc4bb",
+        "type": "group",
+        "z": "d712794350a849f0",
+        "name": "HTML",
+        "style": {
+            "stroke": "#d1d1d1",
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "f703d4596831c844",
+            "bee6347cce1e9032",
+            "02d10ccd5f99ddf2",
+            "18e63e473ff10150",
+            "819153226f627991",
+            "68c257fe5f39f544",
+            "21cd7f2cabb25338",
+            "2643e7105dbb0a86",
+            "8c057763032cfbfc"
+        ],
+        "x": 54,
+        "y": 19,
+        "w": 987,
+        "h": 162
+    },
+    {
+        "id": "3daccba2432deeea",
+        "type": "group",
+        "z": "d712794350a849f0",
+        "name": "Script",
+        "style": {
+            "stroke": "#d1d1d1",
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "bbf97443abe12ed3",
+            "8a9914400942ddc5",
+            "04cab1ed7f7791d6",
+            "3fbe11ed189cfac0",
+            "e006743d29cada86",
+            "e349be4936ad0b79"
+        ],
+        "x": 49,
+        "y": 214,
+        "w": 607,
+        "h": 127
+    },
+    {
+        "id": "17bf4797f0b5eb6e",
+        "type": "group",
+        "z": "d712794350a849f0",
+        "name": "Config",
+        "style": {
+            "stroke": "#d1d1d1",
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "d2705ab7babf6f9c",
+            "2d6c4ed9acf445d7",
+            "1ffb5d40af8e8f7e",
+            "6d67eb31fc0d3233"
+        ],
+        "x": 714,
+        "y": 219,
+        "w": 612,
+        "h": 82
+    },
+    {
+        "id": "33b0a0a13f9565fc",
+        "type": "group",
+        "z": "d712794350a849f0",
+        "name": "Support",
+        "style": {
+            "stroke": "#ffC000",
+            "fill": "#d1d1d1",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "5eca8c49d62a2358",
+            "a4d6446b50ba6baa",
+            "a004c50e484aa32f",
+            "a83396e938fd7df9",
+            "3646f69e8ed144a1",
+            "3da4dde3cab367b8"
+        ],
+        "x": 54,
+        "y": 719,
+        "w": 732,
+        "h": 122
+    },
+    {
+        "id": "80aac01b3532c5c4",
+        "type": "group",
+        "z": "d712794350a849f0",
+        "name": "Generate",
+        "style": {
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#000000",
+            "stroke": "#d1d1d1"
+        },
+        "nodes": [
+            "223a7c03b9345867",
+            "afdf38dea747d21c",
+            "cf590ced567b6567",
+            "76147aa44790aa69",
+            "7ced8d8f7d774cd3",
+            "2b5d35760ce7ad66",
+            "311de9d55b691f7a",
+            "0906d1540e7b3568",
+            "5319b187ab194fa3",
+            "c00bd3d86bdab254",
+            "19515f35d0ae09a3",
+            "253f7ec49cda408e",
+            "ea661928fb1dc5c2",
+            "730bdeee5773c64b",
+            "5bd860f0e2546b1f",
+            "7f43f4767d24b4fe",
+            "e27dd6cee7394493",
+            "eefa90c010d01d9c"
+        ],
+        "x": 14,
+        "y": 419,
+        "w": 1232,
+        "h": 262
+    },
+    {
+        "id": "0a9f23fd1fc93a63",
+        "type": "mongodb4-client",
+        "name": "pap",
+        "protocol": "mongodb",
+        "hostname": "172.16.100.22",
+        "port": "8003",
+        "dbName": "pap",
+        "authSource": "",
+        "authMechanism": "DEFAULT",
+        "tls": false,
+        "tlsCAFile": "",
+        "tlsInsecure": false,
+        "uri": "",
+        "advanced": "",
+        "uriTabActive": "tab-uri-simple"
+    },
+    {
+        "id": "8ba3093d18a041a2",
+        "type": "http in",
+        "z": "2ba203899c4815fd",
+        "name": "Get applications",
+        "url": "/applications1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "b0933122e7519c09"
+            ]
+        ]
+    },
+    {
+        "id": "666c98c93457cffc",
+        "type": "inject",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "b0933122e7519c09"
+            ]
+        ]
+    },
+    {
+        "id": "b0933122e7519c09",
+        "type": "http request",
+        "z": "2ba203899c4815fd",
+        "name": "Get Flows",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:4321/admin/flows",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "ddf1a63961d120f3"
+            ]
+        ]
+    },
+    {
+        "id": "9ea83ef0e0d3b8c8",
+        "type": "http response",
+        "z": "2ba203899c4815fd",
+        "name": "response",
+        "statusCode": "",
+        "headers": {},
+        "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ddf1a63961d120f3",
+        "type": "function",
+        "z": "2ba203899c4815fd",
+        "name": "get flow",
+        "func": "let flows = [];\n\n// if(msg.payload && msg.payload.length > 0) {\n//     msg.payload.filter(x => x.type === \"tab\").map(flow => {\n//         flow.value = flow.id;\n//         flow.flowValue = \"\";\n//         return flow;\n//     });\n// }\n\nif(msg.payload && msg.payload.length > 0) {\n    flows = msg.payload.filter(x => x.type === \"tab\");\n}\n\n\n\nmsg.payload = flows;\nmsg.flows = [];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "9ea83ef0e0d3b8c8"
+            ]
+        ]
+    },
+    {
+        "id": "7ee962072b7629e0",
+        "type": "function",
+        "z": "2ba203899c4815fd",
+        "name": "Save applications to mongodb",
+        "func": "msg.collection = \"applications\";\nmsg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "f8685961dc9f5cf0"
+            ]
+        ]
+    },
+    {
+        "id": "c27e4afb407eddda",
+        "type": "http response",
+        "z": "2ba203899c4815fd",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "589b4c14abcfd0fc",
+        "type": "comment",
+        "z": "2ba203899c4815fd",
+        "name": "Get application from mongodb",
+        "info": "",
+        "x": 160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fd2f35aaaf7e864b",
+        "type": "http in",
+        "z": "2ba203899c4815fd",
+        "name": "Get Application",
+        "url": "/applications",
+        "method": "get",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "7ee962072b7629e0"
+            ]
+        ]
+    },
+    {
+        "id": "3248e21de279bcea",
+        "type": "inject",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "7ee962072b7629e0"
+            ]
+        ]
+    },
+    {
+        "id": "f8685961dc9f5cf0",
+        "type": "mongodb4",
+        "z": "2ba203899c4815fd",
+        "clientNode": "0a9f23fd1fc93a63",
+        "mode": "collection",
+        "collection": "",
+        "operation": "find",
+        "output": "toArray",
+        "handleDocId": false,
+        "name": "Mongodb",
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "c27e4afb407eddda"
+            ]
+        ]
+    },
+    {
+        "id": "b2fce9bd6fd916c7",
+        "type": "function",
+        "z": "2ba203899c4815fd",
+        "name": "Save applications to mongodb",
+        "func": "msg.applications = msg.payload;\n\nmsg.collection = \"applications\";\nconst data = msg.applications;\ndelete data.id;\ndata.posted_time = new Date().toJSON();\nmsg.payload = [];\nmsg.payload.push(data);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "315c07d7c2190b9d"
+            ]
+        ]
+    },
+    {
+        "id": "750baafcc9541678",
+        "type": "http response",
+        "z": "2ba203899c4815fd",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 780,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3f56f435720a241f",
+        "type": "comment",
+        "z": "2ba203899c4815fd",
+        "name": "Save to mongodb",
+        "info": "",
+        "x": 130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f7f8265c14cd4860",
+        "type": "http in",
+        "z": "2ba203899c4815fd",
+        "name": "Create Application",
+        "url": "/application",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "b2fce9bd6fd916c7"
+            ]
+        ]
+    },
+    {
+        "id": "1dcf9cf5a1eb85da",
+        "type": "inject",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 460,
+        "wires": [
+            [
+                "b2fce9bd6fd916c7"
+            ]
+        ]
+    },
+    {
+        "id": "315c07d7c2190b9d",
+        "type": "mongodb4",
+        "z": "2ba203899c4815fd",
+        "clientNode": "0a9f23fd1fc93a63",
+        "mode": "collection",
+        "collection": "",
+        "operation": "insertOne",
+        "output": "toArray",
+        "handleDocId": false,
+        "name": "Mongodb",
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "750baafcc9541678"
+            ]
+        ]
+    },
+    {
+        "id": "fade13c867b53814",
+        "type": "http in",
+        "z": "2ba203899c4815fd",
+        "name": "Get config",
+        "url": "/config",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 540,
+        "wires": [
+            [
+                "42faa3eeda9ad343"
+            ]
+        ]
+    },
+    {
+        "id": "42faa3eeda9ad343",
+        "type": "function",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "func": "msg.app_dir = os.homedir();\nmsg.file_path = path.join(msg.app_dir, \".PAP\",\"menu.json\");\n\nfs.readFile(msg.file_path, 'utf8', (err, data) => {\n  if (err) {\n    console.error(err);\n    return;\n  }\n  msg.payload = data;\n  node.send(msg);\n  node.done();\n});\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            },
+            {
+                "var": "os",
+                "module": "os"
+            }
+        ],
+        "x": 280,
+        "y": 540,
+        "wires": [
+            [
+                "b92dfbfbc6cf67a8"
+            ]
+        ]
+    },
+    {
+        "id": "9db6a01fdb25b32a",
+        "type": "http response",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b92dfbfbc6cf67a8",
+        "type": "json",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "9db6a01fdb25b32a"
+            ]
+        ]
+    },
+    {
+        "id": "850cb57fb6347eb4",
+        "type": "http request",
+        "z": "2ba203899c4815fd",
+        "name": "post upload app",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "{{{MARKET_SERVER}}}app/upload",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 740,
+        "y": 660,
+        "wires": [
+            [
+                "ac04c03466b7bfc7"
+            ]
+        ]
+    },
+    {
+        "id": "419753ac2bda53d1",
+        "type": "function",
+        "z": "2ba203899c4815fd",
+        "name": "zip file/dir",
+        "func": "var app_dir = path.join(msg.MINI_APP_DIR, msg.app_id)\nvar zip_dir = path.join(msg.MINI_APP_DIR, 'zip');\nnode.warn(app_dir);\nnode.warn(app_dir);\n\nif (!fs.existsSync(zip_dir)) {\n    fs.mkdirSync(zip_dir);\n}\nif (!fs.existsSync(app_dir)) {\n    fs.mkdirSync(app_dir);\n}\nvar zip_file = path.join(zip_dir, msg.app_id + '.zip')\nawait zipAFolder.zip(app_dir, zip_file);\n\n// add file zip to request body\nmsg.headers = {\n    \"accept\": \"application/json\",\n    \"content-type\": \"multipart/form-data\"\n}\nmsg.payload = {\n    \"name\": msg.app_id,\n    \"description\": \"description\",\n    \"inputfile\": {\n        \"value\": fs.createReadStream(zip_file),\n        \"options\": {\n            \"filename\": msg.app_id + '.zip'\n        }\n    }\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "zipAFolder",
+                "module": "zip-a-folder"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 540,
+        "y": 660,
+        "wires": [
+            [
+                "850cb57fb6347eb4"
+            ]
+        ]
+    },
+    {
+        "id": "a07d1ad35bd37c26",
+        "type": "change",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MINI_APP_DIR",
+                "pt": "msg",
+                "to": "env.MINI_APP_DIR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "app_id",
+                "pt": "msg",
+                "to": "MINI_APP_NAME",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "MARKET_SERVER",
+                "pt": "msg",
+                "to": "MARKET_SERVER",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 660,
+        "wires": [
+            [
+                "419753ac2bda53d1"
+            ]
+        ]
+    },
+    {
+        "id": "3146d87589a79e26",
+        "type": "http in",
+        "z": "2ba203899c4815fd",
+        "name": "",
+        "url": "/app/upload",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "a07d1ad35bd37c26"
+            ]
+        ]
+    },
+    {
+        "id": "90df67ec4d8c88ea",
+        "type": "comment",
+        "z": "2ba203899c4815fd",
+        "name": "upload app to market",
+        "info": "Upload resource app to market",
+        "x": 140,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "ac04c03466b7bfc7",
+        "type": "http response",
+        "z": "2ba203899c4815fd",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 920,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9912cf70e6952313",
+        "type": "inject",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "e971053f5ea82246"
+            ]
+        ]
+    },
+    {
+        "id": "e971053f5ea82246",
+        "type": "function",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "set env",
+        "func": "msg.HOME_DIR = os.homedir()\nmsg.USER = os.userInfo()\nmsg.APP_NAME = \"PAP\"\nmsg.APP_DIR = path.join(msg.HOME_DIR, \".\" + msg.APP_NAME)\nmsg.MINI_APP_DIR = path.join(msg.APP_DIR, env.get(\"MINI_APPS_FOLDER\"))\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "os",
+                "module": "os"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "d3700a5cf63b2437"
+            ]
+        ]
+    },
+    {
+        "id": "d3700a5cf63b2437",
+        "type": "change",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "env.HOME_DIR",
+                "pt": "flow",
+                "to": "HOME_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.USER",
+                "pt": "flow",
+                "to": "USER",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.APP_DIR",
+                "pt": "flow",
+                "to": "APP_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.MINI_APP_DIR",
+                "pt": "flow",
+                "to": "MINI_APP_DIR",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "env.APP_DIR",
+                "pt": "flow",
+                "to": "APP_DIR",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 60,
+        "wires": [
+            [
+                "49fdae3eb0788fca"
+            ]
+        ]
+    },
+    {
+        "id": "be32dcd8a9e52f0a",
+        "type": "http in",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "url": "/app/001/install",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "fb4498c082bc21c0"
+            ]
+        ]
+    },
+    {
+        "id": "fb4498c082bc21c0",
+        "type": "change",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MINI_APP_DIR",
+                "pt": "msg",
+                "to": "env.MINI_APP_DIR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "MARKET_SERVER",
+                "pt": "msg",
+                "to": "MARKET_SERVER",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "app_id",
+                "pt": "msg",
+                "to": "MINI_APP_NAME",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "app_dir",
+                "pt": "msg",
+                "to": "env.APP_DIR",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "802f4e16b24903a1"
+            ]
+        ]
+    },
+    {
+        "id": "3bb7861382103b62",
+        "type": "comment",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "install app from market",
+        "info": "",
+        "x": 140,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "802f4e16b24903a1",
+        "type": "http request",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "get app data",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "{{{MARKET_SERVER}}}server/app/install/{{{app_id}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "db160362b93c616b"
+            ]
+        ]
+    },
+    {
+        "id": "a78b14a61e0c8b30",
+        "type": "file",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "write file zip",
+        "filename": "zip_file",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "e02345a0fa9f4db5"
+            ]
+        ]
+    },
+    {
+        "id": "db160362b93c616b",
+        "type": "function",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "zip file/dir",
+        "func": "var app_dir = path.join(msg.MINI_APP_DIR, msg.app_id)\nvar zip_dir = path.join(msg.MINI_APP_DIR, 'zip');\nif (!fs.existsSync(zip_dir)) {\n    fs.mkdirSync(zip_dir);\n}\nif (!fs.existsSync(app_dir)) {\n    fs.mkdirSync(app_dir);\n}\nmsg.zip_file = path.join(zip_dir, msg.app_id + '.zip')\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "zipAFolder",
+                "module": "zip-a-folder"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "a78b14a61e0c8b30"
+            ]
+        ]
+    },
+    {
+        "id": "ee9d4b66cb114e60",
+        "type": "http response",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 720,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e02345a0fa9f4db5",
+        "type": "function",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "unzip resource",
+        "func": "var app_dir = path.join(msg.MINI_APP_DIR, msg.app_id)\n\nlet promise = new Promise(function (resolve, reject) {\n    var extract = unzipStream.Extract({ path: app_dir })\n    var pstream = fs.createReadStream(msg.zip_file).pipe(extract)\n    pstream.on('finish', () => {\n        resolve({ code: 200, message: \"install app complete\" })\n    })\n    pstream.on('error', () => {        \n        resolve({ code: 400, error: null, data: \"load template failure.\" })\n    })\n    pstream.on('close', () => {                        \n        resolve({ code: 200, error: null, data: \"load template successful.\" })\n    })     \n});\n\nmsg.payload = await promise\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "unzipStream",
+                "module": "unzip-stream"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "ee9d4b66cb114e60",
+                "959e8721c4532046"
+            ]
+        ]
+    },
+    {
+        "id": "49fdae3eb0788fca",
+        "type": "debug",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "de603f6c2fed1e7e",
+        "type": "function",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "update app menu",
+        "func": "if (!msg.payload.some(app => app.app_id === msg.app_id))\n    msg.payload.push(\n        {\n            \"app_id\": \"001\",\n            \"app_name\": \"CoreUi\",\n            \"app_type\": 2,\n            \"app_url\": \"file:/C://Users/quangga/.PAP/APPS/001/data/index.html\",\n            \"app_hotkey\": \"CmdOrCtrl+2\"\n        }\n    )\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "30bb5b914ae251a5"
+            ]
+        ]
+    },
+    {
+        "id": "2e37655a6fc92ba7",
+        "type": "file in",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "c1b6bc51993cc17e"
+            ]
+        ]
+    },
+    {
+        "id": "959e8721c4532046",
+        "type": "function",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "menu file path",
+        "func": "msg.file_path = path.join(msg.app_dir, \"menu.json\")\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "unzipStream",
+                "module": "unzip-stream"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "2e37655a6fc92ba7"
+            ]
+        ]
+    },
+    {
+        "id": "c1b6bc51993cc17e",
+        "type": "json",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "de603f6c2fed1e7e"
+            ]
+        ]
+    },
+    {
+        "id": "f84f0e0f61f2b635",
+        "type": "debug",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ce84d2e477bff6ca",
+        "type": "inject",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "96c7d34f7cb5e031"
+            ]
+        ]
+    },
+    {
+        "id": "96c7d34f7cb5e031",
+        "type": "http request",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/app/001/install",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30bb5b914ae251a5",
+        "type": "file",
+        "z": "9dd8a43b51fdf2fc",
+        "name": "",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "f84f0e0f61f2b635"
+            ]
+        ]
+    },
+    {
+        "id": "f703d4596831c844",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "",
+        "url": "/gen",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "819153226f627991"
+            ]
+        ]
+    },
+    {
+        "id": "bee6347cce1e9032",
+        "type": "http response",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 955,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bbf97443abe12ed3",
+        "type": "template",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "custom script",
+        "field": "payload.script",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "plain",
+        "template": "document.getElementById(\"folder\").addEventListener(\n  \"change\",\n  function (event) {\n    var output = document.querySelector(\"#list-file\");\n    var files = event.target.files;\n\n    for (var i = 0; i < files.length; i++) {\n      // <li class=\"list-group-item\">\n      //   <input class=\"form-check-input me-1\" type=\"checkbox\" value=\"\" id=\"secondCheckbox\">\n      //   <label class=\"form-check-label\" for=\"secondCheckbox\">Second checkbox</label>\n      // </li>\n\n      var item = document.createElement(\"li\");\n      item.className = \"list-group-item\";\n\n      var inputElm = document.createElement(\"input\");\n      inputElm.className = \"form-check-input me-1\";\n      inputElm.type = \"checkbox\";\n      inputElm.id = \"file-\" + i;\n\n      var labelElm = document.createElement(\"label\");\n      labelElm.className = \"form-check-label\";\n      labelElm.htmlFor = \"file-\" + i;\n      labelElm.innerHTML = files[i].webkitRelativePath;\n\n      item.appendChild(inputElm);\n      item.appendChild(labelElm);\n\n      output.appendChild(item);\n    }\n  },\n  false\n);\n\n\n",
+        "output": "str",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "3fbe11ed189cfac0"
+            ]
+        ]
+    },
+    {
+        "id": "8a9914400942ddc5",
+        "type": "template",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "main.js",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "let data = null;\nlet files = [];\ndocument.getElementById(\"folder\").addEventListener(\n    \"change\",\n    function (event) {\n        var output = document.querySelector(\"#list-file\");\n        var data = event.target.files;\n        files = event.target.files;\n        for (var i = 0; i < data.length; i++) {\n            if (data[i].webkitRelativePath.endsWith(\".xlsx\")) {\n                var item = document.createElement(\"li\");\n                item.className = \"list-group-item\";\n\n                var inputElm = document.createElement(\"input\");\n                inputElm.className = \"form-check-input me-1\";\n                inputElm.type = \"checkbox\";\n                inputElm.id = \"file-\" + i;\n\n                var labelElm = document.createElement(\"label\");\n                labelElm.className = \"form-check-label\";\n                labelElm.htmlFor = \"file-\" + i;\n                labelElm.innerHTML = data[i].webkitRelativePath;\n\n                item.appendChild(inputElm);\n                item.appendChild(labelElm);\n\n                output.appendChild(item);\n            }\n        }\n    },\n    false\n);\n\ndocument.getElementById(\"output-path\").addEventListener(\n    \"click\",\n    function (event) {\n        document.getElementById(\"output\").click();\n    },\n    false\n);\n\nfunction sendSupport() {\n    var myHeaders = new Headers();\n    myHeaders.append(\"Accept\", \"application/json, text/plain, */*\");\n\n    var formData = new FormData();\n    const message = document.getElementById(\"support-message\").value;\n    const data = {\n        type: \"message\",\n        attachments: [\n            {\n                contentType: \"application/vnd.microsoft.card.adaptive\",\n                content: {\n                    type: \"AdaptiveCard\",\n                    body: [{ type: \"TextBlock\", text: message }],\n                    $schema: \"http://adaptivecards.io/schemas/adaptive-card.json\",\n                    version: \"1.0\",\n                },\n            },\n        ],\n    };\n\n    formData.append(\"data\", JSON.stringify(data));\n\n    var requestOptions = {\n        method: \"POST\",\n        headers: myHeaders,\n        body: formData,\n        redirect: \"follow\",\n    };\n    fetch(\"{{{payload.baseUrl}}}/support\", requestOptions)\n        .then((response) => {\n            response.text();\n            document.getElementById(\"support-message\").value = \"\";\n        })\n        .then((result) => {\n            console.log(result);\n            document.getElementById(\"support-message\").value = \"\";\n        })\n        .catch((error) => console.log(\"error\", error));\n}\nfunction onSaveConfig() {\n    var myHeaders = new Headers();\n    myHeaders.append(\"Accept\", \"application/json, text/plain, */*\");\n\n    var formData = new FormData();\n    const template = document.getElementById(\"file-template\").value;\n    const outputPath = document.getElementById(\"output-path\").value;\n    const data = {\n        \"template\": template,\n        \"outputPath\": outputPath\n    };\n\n    formData.append(\"data\", JSON.stringify(data));\n\n    var requestOptions = {\n        method: \"POST\",\n        headers: myHeaders,\n        body: formData,\n        redirect: \"follow\",\n    };\n    fetch(\"{{{payload.baseUrl}}}/config\", requestOptions)\n        .then((response) => {\n            response.text();\n        })\n        .then((result) => {\n            console.log(result);\n            alert('save config success');\n        })\n        .catch((error) => console.log(\"error\", error));\n}\n\nfunction importFile() {\n    var myHeaders = new Headers();\n    myHeaders.append(\"Accept\", \"application/json, text/plain, */*\");\n\n    var formData = new FormData();\n\n    for (var i = 0; i < files.length; i++) {\n        formData.append(\"files\", files[i]);\n    }\n\n    formData.append(\"config\", JSON.stringify(data));\n\n    var requestOptions = {\n        method: \"POST\",\n        headers: myHeaders,\n        body: formData,\n        redirect: \"follow\",\n    };\n    fetch(\"{{{payload.baseUrl}}}/import-source\", requestOptions)\n        .then((response) => response.text())\n        .then((result) => console.log(result))\n        .catch((error) => console.log(\"error\", error));\n}\n\nfunction handleTemplate() {\n    document.getElementById(\"file-template-hidden\").click();\n}\n\ndocument.getElementById(\"file-template-hidden\").addEventListener(\n    \"change\",\n    function (event) {\n        var data = event.target.files;\n        document.getElementById(\"file-template\").value = data[0].name;\n    },\n    false\n);",
+        "output": "str",
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "3fbe11ed189cfac0"
+            ]
+        ]
+    },
+    {
+        "id": "02d10ccd5f99ddf2",
+        "type": "template",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" data-bs-theme=\"auto\">\n\n<head>\n  <meta charset=\"utf-8\" />\n  <title>Upload</title>\n\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n    integrity=\"sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ\" crossorigin=\"anonymous\">\n  <style>\n    {\n        {\n          {\n          payload.style\n        }\n      }\n    }\n  </style>\n</head>\n\n<body>\n  <div class=\"container mt-3\">\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\" role=\"presentation\">\n        <button\n                class=\"nav-link active\"\n                id=\"home-tab\"\n                data-bs-toggle=\"tab\"\n                data-bs-target=\"#home-tab-pane\"\n                type=\"button\"\n                role=\"tab\"\n                aria-controls=\"home-tab-pane\"\n                aria-selected=\"true\"\n              >\n                Source\n              </button>\n      </li>\n      <!-- <li class=\"nav-item\" role=\"presentation\">\n        <button\n                class=\"nav-link\"\n                id=\"profile-tab\"\n                data-bs-toggle=\"tab\"\n                data-bs-target=\"#profile-tab-pane\"\n                type=\"button\"\n                role=\"tab\"\n                aria-controls=\"profile-tab-pane\"\n                aria-selected=\"false\"\n              >\n                Setting\n              </button>\n      </li> -->\n      <li class=\"nav-item\" role=\"presentation\">\n        <button\n                      class=\"nav-link\"\n                      id=\"support-tab\"\n                      data-bs-toggle=\"tab\"\n                      data-bs-target=\"#support-tab-pane\"\n                      type=\"button\"\n                      role=\"tab\"\n                      aria-controls=\"support-tab-pane\"\n                      aria-selected=\"false\"\n                    >\n                      Support\n                    </button>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"tab-content\">\n      <div class=\"tab-pane fade show active\" id=\"home-tab-pane\" role=\"tabpanel\" aria-labelledby=\"home-tab\" tabindex=\"0\">\n        <div class=\"row mt-3\">\n          <div class=\"col-6\">\n            <!-- <label for=\"folder\" class=\"form-label\">Source</label>-->\n            <input\n              class=\"form-control\"\n              type=\"file\"\n              id=\"folder\"\n              accept=\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel\"\n              multiple\n            />\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-6 mt-2\">\n            <ul class=\"list-group\" id=\"list-file\"></ul>\n\n            <div class=\"d-grid gap-2 mt-2 d-md-flex justify-content-md-end\">\n              <button class=\"btn btn-primary me-md-2\" onclick=\"importFile()\" type=\"button\">\n                Gen\n              </button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"tab-pane fade\" id=\"profile-tab-pane\" role=\"tabpanel\" aria-labelledby=\"profile-tab\" tabindex=\"0\">\n        <div class=\"row mt-3\">\n          <div class=\"col-6\">\n            <label for=\"template\" class=\"form-label\">Select Template</label>\n            <input\n                              type=\"file\"\n                              class=\"form-control d-none\"\n                              value=\"{{{template}}}\"\n                              id=\"file-template-hidden\"\n                               accept=\".oml\"\n                              aria-describedby=\"file-template-hidden\"\n                            />\n            <div class=\"input-group mb-3\" onclick=\"handleTemplate()\">\n              \n              <span class=\"input-group-text\"\n                  >Choose File</span>\n              <input\n                      type=\"text\"\n                      class=\"form-control\"\n                      value=\"{{{template}}}\"\n                      id=\"file-template\"\n                      aria-describedby=\"file-template\"\n                    />\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row mt-2\">\n          <div class=\"col-6\">\n            <label for=\"output-path\" class=\"form-label\">Select Output path</label>\n            <div class=\"input-group mb-3\">\n              <span class=\"input-group-text\" click=\"handleOutput()\"\n                      >Choose Folder</span>\n              <input\n                      type=\"text\"\n                      class=\"form-control\"\n                      value=\"{{{outputPath}}}\"\n                      id=\"output-path\"\n                      aria-describedby=\"output-path\"\n                    />\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"col-6 mt-2\">\n            <ul class=\"list-group\" id=\"list-file\"></ul>\n\n            <div class=\"d-grid gap-2 mt-2 d-md-flex justify-content-md-end\">\n              <button class=\"btn btn-primary me-md-2\" type=\"button\" onclick=\"onSaveConfig()\">\n                Save\n              </button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"tab-pane fade\" id=\"support-tab-pane\" role=\"tabpanel\" aria-labelledby=\"support-tab\" tabindex=\"0\">\n        <div class=\"mb-3\">\n          <label for=\"support-message\" class=\"form-label\">Message</label>\n          <textarea class=\"form-control\" id=\"support-message\" rows=\"5\"></textarea>\n        </div>\n\n        <button class=\"btn btn-primary\" id=\"btn-support\" onclick=\"sendSupport()\">Send support</button>\n      </div>\n    </div>\n  </div>\n\n  <script type=\"text/javascript\">\n    {{{payload.script}}}\n  </script>\n  <script type=\"text/javascript\" src=\"/main.js\"> </script>\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js\"\n    crossorigin=\"anonymous\">\n  </script>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 810,
+        "y": 60,
+        "wires": [
+            [
+                "bee6347cce1e9032"
+            ]
+        ]
+    },
+    {
+        "id": "04cab1ed7f7791d6",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "",
+        "url": "/main.js",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 255,
+        "wires": [
+            [
+                "e349be4936ad0b79"
+            ]
+        ]
+    },
+    {
+        "id": "d2705ab7babf6f9c",
+        "type": "http response",
+        "z": "d712794350a849f0",
+        "g": "17bf4797f0b5eb6e",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1240,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3fbe11ed189cfac0",
+        "type": "http response",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "text/javascript"
+        },
+        "x": 570,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "18e63e473ff10150",
+        "type": "template",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "CSS",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "body, button, .form-control, .input-group-text {\n  font-size: 14px;\n  font-family: \"Roboto\";\n}",
+        "x": 675,
+        "y": 60,
+        "wires": [
+            [
+                "02d10ccd5f99ddf2"
+            ]
+        ]
+    },
+    {
+        "id": "2d6c4ed9acf445d7",
+        "type": "file",
+        "z": "d712794350a849f0",
+        "g": "17bf4797f0b5eb6e",
+        "name": "Save config",
+        "filename": "config.json",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 1090,
+        "y": 260,
+        "wires": [
+            [
+                "d2705ab7babf6f9c"
+            ]
+        ]
+    },
+    {
+        "id": "1ffb5d40af8e8f7e",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "17bf4797f0b5eb6e",
+        "name": "config",
+        "url": "/config",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 790,
+        "y": 260,
+        "wires": [
+            [
+                "6d67eb31fc0d3233"
+            ]
+        ]
+    },
+    {
+        "id": "e006743d29cada86",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "",
+        "url": "/custom.js",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 155,
+        "y": 300,
+        "wires": [
+            [
+                "bbf97443abe12ed3"
+            ]
+        ]
+    },
+    {
+        "id": "e349be4936ad0b79",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "3daccba2432deeea",
+        "name": "config env",
+        "func": "msg.payload.baseUrl = \"http://127.0.0.1:1204\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 325,
+        "y": 255,
+        "wires": [
+            [
+                "8a9914400942ddc5"
+            ]
+        ]
+    },
+    {
+        "id": "819153226f627991",
+        "type": "file in",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "get config",
+        "filename": "config.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 325,
+        "y": 60,
+        "wires": [
+            [
+                "68c257fe5f39f544"
+            ]
+        ]
+    },
+    {
+        "id": "68c257fe5f39f544",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "set config of default",
+        "func": "\nlet data = null;\n\nfunction readTextFile(file) {\n    // @ts-ignore\n    var rawFile = new XMLHttpRequest();\n    rawFile.open(\"GET\", file, false);\n    rawFile.onreadystatechange = function () {\n        if (rawFile.readyState === 4) {\n            if (rawFile.status === 200 || rawFile.status == 0) {\n                var allText = rawFile.responseText;\n                data = JSON.parse(allText);\n            }\n        }\n    };\n    rawFile.send(null);\n}\n// readTextFile(\"/data.json\");\n\nif (msg.payload) {\n    const config = JSON.parse(msg.payload);\n    msg.template = config.template;\n    msg.outputPath = config.outputPath;\n} else {\n    msg.template = \"/input/template.oml\";\n    msg.outputPath = \"/output\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 60,
+        "wires": [
+            [
+                "18e63e473ff10150"
+            ]
+        ]
+    },
+    {
+        "id": "6d67eb31fc0d3233",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "17bf4797f0b5eb6e",
+        "name": "parse data",
+        "func": "msg.payload = JSON.parse(msg.payload.data);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 260,
+        "wires": [
+            [
+                "2d6c4ed9acf445d7"
+            ]
+        ]
+    },
+    {
+        "id": "5eca8c49d62a2358",
+        "type": "http request",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://fptsoftware362.webhook.office.com/webhookb2/3c9a50d2-703f-420d-b378-928336c1c0ff@f01e930a-b52e-42b1-b70f-a8882b5d043b/IncomingWebhook/8c202b2e0d1a4545b786e85c42151e39/20d2549a-fa66-4cd0-8de3-d2b9809b14cf",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [
+                "a004c50e484aa32f",
+                "3da4dde3cab367b8"
+            ]
+        ]
+    },
+    {
+        "id": "a4d6446b50ba6baa",
+        "type": "inject",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"message\",\"attachments\":[{\"contentType\":\"application/vnd.microsoft.card.adaptive\",\"content\":{\"type\":\"AdaptiveCard\",\"body\":[{\"type\":\"TextBlock\",\"text\":\"Quang đầu đất\"}],\"$schema\":\"http://adaptivecards.io/schemas/adaptive-card.json\",\"version\":\"1.0\"}}]}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "5eca8c49d62a2358"
+            ]
+        ]
+    },
+    {
+        "id": "a004c50e484aa32f",
+        "type": "debug",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "debug 77",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a83396e938fd7df9",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "",
+        "url": "/support",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "3646f69e8ed144a1"
+            ]
+        ]
+    },
+    {
+        "id": "3646f69e8ed144a1",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "parse param",
+        "func": "msg.payload = JSON.parse(msg.payload.data);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 800,
+        "wires": [
+            [
+                "5eca8c49d62a2358"
+            ]
+        ]
+    },
+    {
+        "id": "3da4dde3cab367b8",
+        "type": "http response",
+        "z": "d712794350a849f0",
+        "g": "33b0a0a13f9565fc",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 680,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "223a7c03b9345867",
+        "type": "http in",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "Gen",
+        "url": "/import-source",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "311de9d55b691f7a"
+            ]
+        ]
+    },
+    {
+        "id": "afdf38dea747d21c",
+        "type": "http response",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 580,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cf590ced567b6567",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "get data",
+        "func": "msg.structures.forEach(function (structure, index) {\n    const entityName = structure.EntityName;\n    const data = msg.data.find(d => d.EntityName === entityName);\n    if (data) {\n        structure[\"Data\"] = data[\"Data\"];\n    }\n    // node.debug('', structure.name);\n    \n});\nmsg.payload = msg.structures;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "excelToJson",
+                "module": "convert-excel-to-json"
+            }
+        ],
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "afdf38dea747d21c",
+                "730bdeee5773c64b"
+            ]
+        ]
+    },
+    {
+        "id": "76147aa44790aa69",
+        "type": "switch",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "Folder? Empty?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 440,
+        "y": 520,
+        "wires": [
+            [
+                "0906d1540e7b3568"
+            ],
+            [
+                "7ced8d8f7d774cd3"
+            ]
+        ]
+    },
+    {
+        "id": "7ced8d8f7d774cd3",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "get name",
+        "func": "msg.fileName = msg.payload.originalname;\nmsg.payload = msg.payload.buffer;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 540,
+        "wires": [
+            [
+                "2b5d35760ce7ad66"
+            ]
+        ]
+    },
+    {
+        "id": "2b5d35760ce7ad66",
+        "type": "switch",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "check type",
+        "property": "fileName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Data.xlsx",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Structure.xlsx",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 790,
+        "y": 540,
+        "wires": [
+            [
+                "c00bd3d86bdab254"
+            ],
+            [
+                "5319b187ab194fa3"
+            ],
+            [
+                "19515f35d0ae09a3"
+            ]
+        ]
+    },
+    {
+        "id": "5319b187ab194fa3",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "get structure",
+        "func": "/**/\nasync function getStructures(payload) {\n    let result = [];\n    const workbook = new exceljs.Workbook();\n    const sourceWorkbook = await workbook.xlsx.load(payload);\n    const worksheets = sourceWorkbook.worksheets;\n    worksheets.forEach(function (worksheet) {\n        const item = {\n            \"EntityName\": worksheet.name,\n            \"Field\": [],\n            \"Data\": [],\n        }\n        if (worksheet) {\n            worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {\n                if (rowNumber > 3) {\n                    const fieldItem = {\n                        \"No\": row.getCell(2).value,\n                        \"FieldName\": row.getCell(3).value,\n                        \"Label\": row.getCell(4).value,\n                        \"Type\": row.getCell(5).value,\n                        \"Mandatory\": row.getCell(6).value,\n                        \"DefaultValue\": row.getCell(7).value,\n                    }\n                    item.Field.push(fieldItem);\n                }\n            });\n        }\n        result.push(item);\n    });\n    return result;\n}\nconst structures = await getStructures(msg.payload);\nmsg.structures = structures;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "exceljs",
+                "module": "exceljs"
+            }
+        ],
+        "x": 990,
+        "y": 540,
+        "wires": [
+            [
+                "253f7ec49cda408e"
+            ]
+        ]
+    },
+    {
+        "id": "c00bd3d86bdab254",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "get data",
+        "func": "async function getData(payload) {\n  let result = [];\n  const workbook = new exceljs.Workbook();\n  const sourceWorkbook = await workbook.xlsx.load(payload);\n  const worksheets = sourceWorkbook.worksheets;\n  worksheets.forEach(function (worksheet) {\n    const item = {\n      \"EntityName\": worksheet.name,\n      \"Field\": [],\n      \"Data\": [],\n    }\n    if (worksheet) {\n      const headerRow = worksheet.getRow(1);\n      const headers = [];\n      headerRow.eachCell(function (cell, colNumber) {\n        headers.push(cell.value);\n      });\n      \n      worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {\n        if (rowNumber > 1) {\n          const dataItem = [];\n          headers.forEach((header, index) => {\n            const value = row.getCell(index + 1).value ? row.getCell(index + 1).value : \"\";\n            dataItem.push(value)\n          })\n          item[\"Data\"].push(dataItem);\n        }\n      });\n    }\n    \n    result.push(item);\n  });\n  return result;\n}\nconst data = await getData(msg.payload);\nmsg.data = data;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "exceljs",
+                "module": "exceljs"
+            }
+        ],
+        "x": 980,
+        "y": 500,
+        "wires": [
+            [
+                "253f7ec49cda408e"
+            ]
+        ]
+    },
+    {
+        "id": "ea661928fb1dc5c2",
+        "type": "inject",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"EntityName\":\"HSE\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"Pre_DefineScore\",\"Label\":\"Pre-DefineScore\",\"Type\":\"float\",\"Mandatory\":null,\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"HSE1\",7,1],[\"HSE2\",8,1],[\"HSE3\",9,\"\"]]},{\"EntityName\":\"AssetLocation\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"Pre_DefineScore\",\"Label\":\"Pre-DefineScore\",\"Type\":\"float\",\"Mandatory\":null,\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"AL1\",7,1],[\"AL2\",8,1],[\"AL3\",9,\"\"]]},{\"EntityName\":\"Statutory\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"Pre_DefineScore\",\"Label\":\"Pre-DefineScore\",\"Type\":\"float\",\"Mandatory\":null,\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"Statutory1\",7,1],[\"Statutory2\",8,1],[\"Statutory3\",9,\"\"]]},{\"EntityName\":\"ProductionGain_Lost\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"Pre_DefineScore\",\"Label\":\"Pre-DefineScore\",\"Type\":\"float\",\"Mandatory\":null,\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[]},{\"EntityName\":\"Criticality\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"Pre_DefineScore\",\"Label\":\"Pre-DefineScore\",\"Type\":\"float\",\"Mandatory\":null,\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"Critical1\",7,1],[\"Critical2\",8,1],[\"Critical3\",9,\"\"]]},{\"EntityName\":\"Duration\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"Spring\",1],[\"Summer\",1],[\"Fall\",\"\"],[\"Winter\",\"\"]]},{\"EntityName\":\"Unit\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"Unit1\",1],[\"Unit2\",1],[\"Unit3\",\"\"]]},{\"EntityName\":\"Impact\",\"Field\":[{\"No\":1,\"FieldName\":\"Name\",\"Label\":\"Name\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":2,\"FieldName\":\"IsActive\",\"Label\":\"IsActive\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"Impact1\",1],[\"Impact2\",1],[\"Impact3\",\"\"]]},{\"EntityName\":\"FIPGRForm0\",\"Field\":[{\"No\":1,\"FieldName\":\"FromTypeId\",\"Label\":\"Form Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"Phase\",\"Label\":\"Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"FIPStudyTitle\",\"Label\":\"FIP Study Title\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":4,\"FieldName\":\"DescriptionofSituation\",\"Label\":\"Description of Situation\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":5,\"FieldName\":\"ProposedScopeofWork\",\"Label\":\"Proposed Scope of Work\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":6,\"FieldName\":\"HSEId\",\"Label\":\"HSE Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":7,\"FieldName\":\"CriticalityId\",\"Label\":\"Criticality Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"ProductionGain_LostId\",\"Label\":\"Production Gain Lost Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":9,\"FieldName\":\"StatutoryId\",\"Label\":\"Statutory Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":10,\"FieldName\":\"AssetLocationId\",\"Label\":\"AssetLocation Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":11,\"FieldName\":\"RegistrationOfEndorsement\",\"Label\":\"Registration Of Endorsement\",\"Type\":\"varchar(255)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":12,\"FieldName\":\"DurationId\",\"Label\":\"Duration Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":13,\"FieldName\":\"Comment\",\"Label\":\"Comment\",\"Type\":\"varchar(3000)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":14,\"FieldName\":\"ChairmanoftheMeeting\",\"Label\":\"Chairman of the Meeting\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":15,\"FieldName\":\"FIPGR0SittingDate\",\"Label\":\"FIPGR 0 Sitting Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":16,\"FieldName\":\"EstimatedCost\",\"Label\":\"Estimated Cost\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":0},{\"No\":17,\"FieldName\":\"EstimatedCompletionDate\",\"Label\":\"Estimated Completion Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":18,\"FieldName\":\"FormStatus\",\"Label\":\"Form Status\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":19,\"FieldName\":\"Form0Value\",\"Label\":\"Form 0 Value\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":0},{\"No\":20,\"FieldName\":\"Form0UnitId\",\"Label\":\"Form 0 Unit Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":21,\"FieldName\":\"Form0ImpactId\",\"Label\":\"Form Impact Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[]},{\"EntityName\":\"FIPGRForm1\",\"Field\":[{\"No\":1,\"FieldName\":\"FromTypeId\",\"Label\":\"Form Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"Phase\",\"Label\":\"Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":2},{\"No\":3,\"FieldName\":\"Findings\",\"Label\":\"Findings\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":4,\"FieldName\":\"Recommendations\",\"Label\":\"Recommendations\",\"Type\":\"varchar(3000)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":5,\"FieldName\":\"Endrosements\",\"Label\":\"Endrosements\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":6,\"FieldName\":\"DurationId\",\"Label\":\"Duration Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":7,\"FieldName\":\"Comment\",\"Label\":\"Comment\",\"Type\":\"varchar(3000)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"ChairmanoftheMeeting\",\"Label\":\"Chairman of the Meeting\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":9,\"FieldName\":\"FIPGR1SittingDate\",\"Label\":\"FIPGR 1 Sitting Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":10,\"FieldName\":\"EstimatedCost\",\"Label\":\"Estimated Cost\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":11,\"FieldName\":\"EstimatedCompletionDate\",\"Label\":\"Estimated Completion Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":12,\"FieldName\":\"IndexAverageComplexity\",\"Label\":\"Index Average Complexity\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":13,\"FieldName\":\"ProjectType\",\"Label\":\"Project Type\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":14,\"FieldName\":\"FormStatus\",\"Label\":\"Form Status\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":15,\"FieldName\":\"Form1Value\",\"Label\":\"Form 1 Value\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":16,\"FieldName\":\"Form1UnitId\",\"Label\":\"Form 1 Unit Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":17,\"FieldName\":\"Form1ImpactId\",\"Label\":\"Form 1 Impact Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":18,\"FieldName\":\"CreateBy\",\"Label\":\"Create By User Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[]},{\"EntityName\":\"FIPGRForm2\",\"Field\":[{\"No\":1,\"FieldName\":\"FromTypeId\",\"Label\":\"Form Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"Phase\",\"Label\":\"Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":3},{\"No\":3,\"FieldName\":\"Findings\",\"Label\":\"Findings\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":4,\"FieldName\":\"Recommendations\",\"Label\":\"Recommendations\",\"Type\":\"varchar(3000)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":5,\"FieldName\":\"Endrosements\",\"Label\":\"Endrosements\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":6,\"FieldName\":\"DurationId\",\"Label\":\"Duration Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":7,\"FieldName\":\"Comment\",\"Label\":\"Comment\",\"Type\":\"varchar(3000)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"ChairmanoftheMeeting\",\"Label\":\"Chairman of the Meeting\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":9,\"FieldName\":\"FIPGR2SittingDate\",\"Label\":\"FIPGR 2 Sitting Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":10,\"FieldName\":\"EstimatedCost\",\"Label\":\"Estimated Cost\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":11,\"FieldName\":\"EstimatedCompletionDate\",\"Label\":\"Estimated Completion Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":12,\"FieldName\":\"IndexAverageComplexity\",\"Label\":\"Index Average Complexity\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":13,\"FieldName\":\"ProjectType\",\"Label\":\"Project Type\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":14,\"FieldName\":\"FormStatus\",\"Label\":\"Form Status\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":15,\"FieldName\":\"Form2Value\",\"Label\":\"Form 2 Value\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":16,\"FieldName\":\"Form2UnitId\",\"Label\":\"Form 2 Unit Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":17,\"FieldName\":\"Form2ImpactId\",\"Label\":\"Form 2 Impact Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":18,\"FieldName\":\"CreateBy\",\"Label\":\"Create By User Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[]},{\"EntityName\":\"FIPGRForm3\",\"Field\":[{\"No\":1,\"FieldName\":\"FromTypeId\",\"Label\":\"From Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"Phase\",\"Label\":\"Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":4},{\"No\":3,\"FieldName\":\"Comment\",\"Label\":\"Comment\",\"Type\":\"varchar(3000)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":4,\"FieldName\":\"ChairmanoftheMeeting\",\"Label\":\"Chairman of the Meeting\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":5,\"FieldName\":\"FIPGR3SittingDate\",\"Label\":\"FIPGR 3 Sitting Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":6,\"FieldName\":\"FIPLTRM10\",\"Label\":\"FIP LTRM 10\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":10},{\"No\":7,\"FieldName\":\"FIPMTRM10to150\",\"Label\":\"FIP MTRM 10 to 150\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":10},{\"No\":8,\"FieldName\":\"EstimatedCost\",\"Label\":\"Estimated Cost\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":9,\"FieldName\":\"EstimatedCompletionDate\",\"Label\":\"Estimated Completion Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":10,\"FieldName\":\"IndexAverageComplexity\",\"Label\":\"Index Average Complexity\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":11,\"FieldName\":\"ProjectType\",\"Label\":\"Project Type\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":12,\"FieldName\":\"FormStatus\",\"Label\":\"Form Status\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":13,\"FieldName\":\"Form3Value\",\"Label\":\"Form 3 Value\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":14,\"FieldName\":\"Form3UnitId\",\"Label\":\"Form 3 Unit Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":15,\"FieldName\":\"Form3ImpactId\",\"Label\":\"Form 3 Impact Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":16,\"FieldName\":\"CreateBy\",\"Label\":\"Create By User Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[[\"\",1,\"This is a comment section\",\"Boss3\",\"27/2/2023\",1,50,\"\",\"27/2/2023\",1,\"Easy\",\"\",1,\"\",\"\",\"\"],[\"\",2,\"This is a comment section\",\"Boss3\",\"27/2/2023\",2,100,\"\",\"27/2/2023\",2,\"Normal\",\"\",2,\"\",\"\",\"\"],[\"\",3,\"This is a comment section\",\"Boss3\",\"27/2/2023\",3,150,\"\",\"27/2/2023\",3,\"Hard\",\"\",3,\"\",\"\",\"\"]]},{\"EntityName\":\"FIPGRForm4\",\"Field\":[{\"No\":1,\"FieldName\":\"FromTypeId\",\"Label\":\"From Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"Phase\",\"Label\":\"Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":5},{\"No\":3,\"FieldName\":\"MocNo\",\"Label\":\"Moc No\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":4,\"FieldName\":\"DocNo\",\"Label\":\"Doc No\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":5,\"FieldName\":\"ActualCost\",\"Label\":\"Actual Cost\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":6,\"FieldName\":\"ActualCompletionDate\",\"Label\":\"Actual Completion Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":7,\"FieldName\":\"Comment\",\"Label\":\"Comment\",\"Type\":\"varchar(3000)\",\"Mandatory\":\"x\",\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"ChairmanoftheMeeting\",\"Label\":\"Chairman of the Meeting\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":9,\"FieldName\":\"FIPGR4SittingDate\",\"Label\":\"FIPGR4 Sitting Date\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":10,\"FieldName\":\"IndexAverageComplexity\",\"Label\":\"Index Average Complexity\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":11,\"FieldName\":\"ProjectType\",\"Label\":\"Project Type\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":12,\"FieldName\":\"FormStatus\",\"Label\":\"Form Status\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":13,\"FieldName\":\"Form4Value\",\"Label\":\"Form 4 Value\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":14,\"FieldName\":\"Form4UnitId\",\"Label\":\"Form 4 Unit Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":15,\"FieldName\":\"Form4ImpactId\",\"Label\":\"Form 4 Impact Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":16,\"FieldName\":\"CreateBy\",\"Label\":\"Create By User Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[[\"\",1,1,1,1,\"27/2/2023\",\"This is a comment section\",\"Boss4\",\"27/2/2023\",1,\"Easy\",\"\",1,\"\",\"\",\"\"],[\"\",2,2,2,2,\"27/2/2023\",\"This is a comment section\",\"Boss4\",\"27/2/2023\",2,\"Normal\",\"\",2,\"\",\"\",\"\"],[\"\",3,3,3,3,\"27/2/2023\",\"This is a comment section\",\"Boss4\",\"27/2/2023\",3,\"Hard\",\"\",3,\"\",\"\",\"\"]]},{\"EntityName\":\"Request\",\"Field\":[{\"No\":1,\"FieldName\":\"CategoryId\",\"Label\":\"Category Id\",\"Type\":\"varchar(255)\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"FIPNo\",\"Label\":\"FIP No\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":3,\"FieldName\":\"FIPTitle\",\"Label\":\"FIP Title\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":4,\"FieldName\":\"RegionalId\",\"Label\":\"Regional Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":5,\"FieldName\":\"FieldId\",\"Label\":\"Field Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":6,\"FieldName\":\"PlatformId\",\"Label\":\"Platform Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":7,\"FieldName\":\"CreateBy\",\"Label\":\"Create By\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"CreateOn\",\"Label\":\"Create On\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":9,\"FieldName\":\"ModifiedBy\",\"Label\":\"Modified By\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":10,\"FieldName\":\"ModifiedOn\",\"Label\":\"Modified On\",\"Type\":\"date\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T00:00:00.000Z\"},{\"No\":11,\"FieldName\":\"IsActive\",\"Label\":\"Is Active\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":12,\"FieldName\":\"RequestStatusId\",\"Label\":\"Request Status Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":13,\"FieldName\":\"TotalScore\",\"Label\":\"Total Score\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":14,\"FieldName\":\"Ranking\",\"Label\":\"Ranking\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":15,\"FieldName\":\"Priority\",\"Label\":\"Priority\",\"Type\":\"float\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":16,\"FieldName\":\"Equipement\",\"Label\":\"Equipement\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":17,\"FieldName\":\"CurrentPhase\",\"Label\":\"Current Phase\",\"Type\":\"int\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":18,\"FieldName\":\"SimplifedRouteId\",\"Label\":\"Simplifed Route Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null}],\"Data\":[[\"\",1,\"FIP Title 1\",\"\",\"\",\"\",\"\",\"27/2/2023\",\"\",\"27/2/2023\",1,\"\",1,1,1,\"Equipement1\",\"\",\"\"],[\"\",2,\"FIP Title 2\",\"\",\"\",\"\",\"\",\"27/2/2023\",\"\",\"27/2/2023\",1,\"\",2,2,2,\"Equipement2\",\"\",\"\"],[\"\",3,\"FIP Title 3\",\"\",\"\",\"\",\"\",\"27/2/2023\",\"\",\"27/2/2023\",\"\",\"\",3,3,3,\"Equipement3\",\"\",\"\"]]},{\"EntityName\":\"Approver\",\"Field\":[{\"No\":1,\"FieldName\":\"RequestId\",\"Label\":\"Request Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":2,\"FieldName\":\"FIPRForm0Id\",\"Label\":\"FIPR Form 0 Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":3,\"FieldName\":\"FIPRForm1Id\",\"Label\":\"FIPR Form 1 Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":4,\"FieldName\":\"FIPRForm2Id\",\"Label\":\"FIPR Form 2 Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":5,\"FieldName\":\"FIPRForm3Id\",\"Label\":\"FIPR Form 3 Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":6,\"FieldName\":\"FIPRForm4Id\",\"Label\":\"FIPR Form 4 Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":7,\"FieldName\":\"FIPRFormDeviationId\",\"Label\":\"FIPR Form Deviation Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":8,\"FieldName\":\"FormTypeId\",\"Label\":\"Form Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":9,\"FieldName\":\"ApproverTypeId\",\"Label\":\"Approver Type Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":10,\"FieldName\":\"ApproverId\",\"Label\":\"Approver Id\",\"Type\":\"int\",\"Mandatory\":null,\"DefaultValue\":null},{\"No\":11,\"FieldName\":\"DateTime\",\"Label\":\"Date Time\",\"Type\":\"date time\",\"Mandatory\":\"x\",\"DefaultValue\":\"1899-12-31T09:00:00.000Z\"},{\"No\":12,\"FieldName\":\"IsReviewed\",\"Label\":\"Is Reviewed\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":13,\"FieldName\":\"IsAcknowledged\",\"Label\":\"Is Acknowledged\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":14,\"FieldName\":\"IsEndorsed\",\"Label\":\"Is Endorsed\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":15,\"FieldName\":\"IsRevert\",\"Label\":\"Is Revert\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":16,\"FieldName\":\"IsProposed\",\"Label\":\"Is Proposed\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":17,\"FieldName\":\"IsVerified\",\"Label\":\"Is Verified\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":18,\"FieldName\":\"IsAccepted\",\"Label\":\"Is Accepted\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":19,\"FieldName\":\"IsApproved\",\"Label\":\"Is Approved\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":20,\"FieldName\":\"IsChairmanApproved\",\"Label\":\"Is Chairman Approved\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":21,\"FieldName\":\"IsChairmanNotApproved\",\"Label\":\"Is Chairman Not Approved\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":0},{\"No\":22,\"FieldName\":\"Designation\",\"Label\":\"Designation\",\"Type\":\"varchar(255)\",\"Mandatory\":\"x\",\"DefaultValue\":\"Default\"},{\"No\":23,\"FieldName\":\"IsChecking\",\"Label\":\"Is Checking\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1},{\"No\":24,\"FieldName\":\"IsAuthorityApproved\",\"Label\":\"Is Authority Approved\",\"Type\":\"bit\",\"Mandatory\":\"x\",\"DefaultValue\":1}],\"Data\":[[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27/2/2023\",1,1,1,1,1,1,1,1,1,\"\",\"Viet Nam\",1,\"\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27/2/2023\",1,1,1,1,1,1,1,1,\"\",\"\",\"Viet Nam\",1,\"\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27/2/2023\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",1,\"Viet Nam\",\"\",\"\"]]}]",
+        "payloadType": "json",
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "730bdeee5773c64b"
+            ]
+        ]
+    },
+    {
+        "id": "730bdeee5773c64b",
+        "type": "json",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 620,
+        "wires": [
+            [
+                "e27dd6cee7394493"
+            ]
+        ]
+    },
+    {
+        "id": "5bd860f0e2546b1f",
+        "type": "exec",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "command": "resources/app/App002/App002.pap",
+        "addpay": "",
+        "append": "msg.omlpath",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "call gen program",
+        "x": 790,
+        "y": 620,
+        "wires": [
+            [
+                "7f43f4767d24b4fe"
+            ],
+            [
+                "7f43f4767d24b4fe"
+            ],
+            [
+                "7f43f4767d24b4fe"
+            ]
+        ]
+    },
+    {
+        "id": "7f43f4767d24b4fe",
+        "type": "debug",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "debug 78",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e27dd6cee7394493",
+        "type": "function",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "write file data",
+        "func": "msg.filename = 'data.json',\n//msg.path = env.get(\"root_path\"),\nfs.writeFile(msg.filename, msg.payload, err => {\n  if (err) {\n  }\n  // file written successfully\n});\nmsg.payload = moment().format('yyyy-mm-dd:hh:mm:ss') + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "fs",
+                "module": "fs"
+            },
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 450,
+        "y": 620,
+        "wires": [
+            [
+                "eefa90c010d01d9c"
+            ]
+        ]
+    },
+    {
+        "id": "21cd7f2cabb25338",
+        "type": "catch",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "read config error",
+        "scope": [
+            "819153226f627991"
+        ],
+        "uncaught": false,
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "2643e7105dbb0a86"
+            ]
+        ]
+    },
+    {
+        "id": "2643e7105dbb0a86",
+        "type": "change",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"template\":\"blank.oml\",\"outputPath\":\"\"}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "8c057763032cfbfc"
+            ]
+        ]
+    },
+    {
+        "id": "8c057763032cfbfc",
+        "type": "file",
+        "z": "d712794350a849f0",
+        "g": "59397896259fc4bb",
+        "name": "",
+        "filename": "config.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "68c257fe5f39f544"
+            ]
+        ]
+    },
+    {
+        "id": "0906d1540e7b3568",
+        "type": "warp",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "go to Loop",
+        "scope": [
+            "311de9d55b691f7a"
+        ],
+        "destination": "selected",
+        "x": 630,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "19515f35d0ae09a3",
+        "type": "warp",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "go to Loop",
+        "scope": [
+            "311de9d55b691f7a"
+        ],
+        "destination": "selected",
+        "x": 990,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "253f7ec49cda408e",
+        "type": "warp",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "go to Loop",
+        "scope": [
+            "311de9d55b691f7a"
+        ],
+        "destination": "selected",
+        "x": 1150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "311de9d55b691f7a",
+        "type": "loop",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "Loop files",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "req.files",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "cf590ced567b6567"
+            ],
+            [
+                "76147aa44790aa69"
+            ]
+        ]
+    },
+    {
+        "id": "8b21fea7f8a1e60a",
+        "type": "file in",
+        "z": "d712794350a849f0",
+        "name": "",
+        "filename": "a.b",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 320,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4362eb5c8e2a2cb",
+        "type": "inject",
+        "z": "d712794350a849f0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 980,
+        "wires": [
+            [
+                "8b21fea7f8a1e60a"
+            ]
+        ]
+    },
+    {
+        "id": "eefa90c010d01d9c",
+        "type": "file",
+        "z": "d712794350a849f0",
+        "g": "80aac01b3532c5c4",
+        "name": "",
+        "filename": "gen.log",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 600,
+        "y": 620,
+        "wires": [
+            [
+                "5bd860f0e2546b1f"
+            ]
+        ]
+    }
+]

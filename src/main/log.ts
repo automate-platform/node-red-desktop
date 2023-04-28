@@ -18,7 +18,7 @@ function archiveLog(file: log.LogFile): void {
   }
 }
 
-log.transports.console.level = 'debug';
+log.transports.console.level = 'info';
 log.transports.file.level = 'info';
 //@ts-ignore
 log.transports.file.archiveLog = archiveLog;
